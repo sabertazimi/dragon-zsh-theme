@@ -2,6 +2,8 @@
 
 dragon is a minimalistic zsh prompt theme for git users
 
+![screenshot]()
+
 ## License
 
 MIT License Copyright (c) 2016 [sabertazimi](https://github.com/sabertazimi)

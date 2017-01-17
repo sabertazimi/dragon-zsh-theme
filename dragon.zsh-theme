@@ -1,9 +1,9 @@
 # Color
-BLUE="%{$fg_bold[blue]%}"
 GREEN="%{$fg_bold[green]%}"
+BLUE="%{$fg_bold[blue]%}"
+RED="%{$fg_bold[red]%}"
 YELLOW="%{$fg_bold[yellow]%}"
 CYAN="%{$fg_bold[cyan]%}"
-RED="%{$fg_bold[red]%}"
 MAGENTA="%{$fg_bold[magenta]%}"
 WHITE="%{$fg_bold[white]%}"
 RESET="%{$reset_color%}"
@@ -23,35 +23,38 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="$YELLOW#"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="$CYAN?"
 
 # Format for git_prompt_ahead()
-ZSH_THEME_GIT_PROMPT_AHEAD=" $WHITE^"
+ZSH_THEME_GIT_PROMPT_AHEAD="$WHITE^"
 
 # Directory info
 # local current_dir='${PWD/#$HOME/~}'
-
-# Machine name
-function box_name {
-    [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
-}
 
 function get_right_prompt() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [[ -z $(git_prompt_info) ]]; then
             echo -n "$BLUEdetached-head$RESET $(git_prompt_status)"
         else
-            echo -n "$(git_prompt_info) $(git_prompt_status)|$BLUE$(git_prompt_short_sha)$RESET"
+            echo -n "$(git_prompt_info) $(git_prompt_status)|$WHITE$(git_prompt_short_sha)$RESET"
         fi
     else
         echo -n "$RESET"
     fi
 }
 
+# DRAGON_DATE="$CYAN%W%t"
+DRAGON_DATE="$CYAN%W-%*"
+DRAGON_USER="%n"
+DRAGON_SEPARATOR="$RESET@"
+DRAGON_MACHINE="$MAGENTA%m"
+DRAGON_DIRECTORY="$YELLOW%c"
+DRAGON_PROMPT="$CYAN→ $RESET"
+
 if [[ "$USER" == "root" ]]; then
-    PROMPT="$RED⬡ $RED%n$RESET@$GREEN$(box_name): $YELLOW%c
-$CYAN→ $RESET"
+    DRAGON_PREFIX="$RED⬡"
 else
-    PROMPT="$GREEN⬢ $BLUE%n$RESET@$GREEN$(box_name): $YELLOW%c
-$CYAN→ $RESET"
+    DRAGON_PREFIX="$GREEN⬢"
 fi
 
+PROMPT="$DRAGON_PREFIX $DRAGON_USER$DRAGON_SEPARATOR$DRAGON_MACHINE: $DRAGON_DIRECTORY $DRAGON_DATE
+$DRAGON_PROMPT"
 RPROMPT='$(get_right_prompt)'
 
