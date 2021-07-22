@@ -1,7 +1,7 @@
 # dragon-zsh-theme
 
 [![Author](https://img.shields.io/badge/author-sabertaz-lightgrey?style=for-the-badge)](https://github.com/sabertazimi)
-[![LICENSE](https://img.shields.io/github/license/sabertazimi/dragon-zsh-theme?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dragon-zsh-theme/master/LICENSE)
+[![LICENSE](https://img.shields.io/github/license/sabertazimi/dragon-zsh-theme?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dragon-zsh-theme/main/LICENSE)
 
 [![Code Lines](https://img.shields.io/tokei/lines/github/sabertazimi/dragon-zsh-theme?style=for-the-badge&logo=visualstudiocode)](https://github.com/sabertazimi/dragon-zsh-theme)
 [![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dragon-zsh-theme?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertazimi/dragon-zsh-theme)
@@ -17,7 +17,7 @@ dragon is a minimalistic zsh prompt theme for git users
 *   Git prompt info
 *   Git status info
 
-![screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/master/dragon-zsh-theme.png)
+![screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/main/dragon-zsh-theme.png)
 
 ## License
 
