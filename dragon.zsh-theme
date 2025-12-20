@@ -30,11 +30,7 @@ ZSH_THEME_GIT_PROMPT_AHEAD="$WHITE^"
 
 function get_right_prompt() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
-        if [[ -z $(git_prompt_info) ]]; then
-            echo -n "$BLUEdetached-head$RESET $(git_prompt_status)"
-        else
-            echo -n "$(git_prompt_info) $(git_prompt_status)|$WHITE$(git_prompt_short_sha)$RESET"
-        fi
+        echo -n "$(git_prompt_info) $(git_prompt_status)|$WHITE$(git_prompt_short_sha)$RESET"
     else
         echo -n "$RESET"
     fi
@@ -57,4 +53,3 @@ fi
 PROMPT="$DRAGON_PREFIX $DRAGON_USER$DRAGON_SEPARATOR$DRAGON_MACHINE: $DRAGON_DIRECTORY $DRAGON_DATE
 $DRAGON_PROMPT"
 RPROMPT='$(get_right_prompt)'
-
