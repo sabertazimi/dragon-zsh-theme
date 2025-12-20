@@ -8,14 +8,18 @@ dragon is a minimalistic zsh prompt theme for git users
 
 ## Feature
 
-*   Pretty prefix prompt signature
-*   Pretty color
-*   Current directory
-*   Time stamp
-*   Git prompt info
-*   Git status info
+- Pretty prefix prompt signature
+- Pretty color
+- Current directory
+- Time stamp
+- Git prompt info
+- Git status info
 
-![screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/main/dragon-zsh-theme.png)
+![Zsh Screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/main/dragon-zsh-theme.png)
+
+## Bash Theme
+
+![Bash Screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/main/dragon-bash-theme.png)
 
 ## License
 
