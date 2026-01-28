@@ -4,7 +4,7 @@
 [![LICENSE](https://img.shields.io/github/license/sabertazimi/dragon-zsh-theme?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dragon-zsh-theme/main/LICENSE)
 [![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dragon-zsh-theme?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertazimi/dragon-zsh-theme)
 
-dragon is a minimalistic zsh prompt theme for git users
+A minimalistic zsh (bash) prompt theme for git users.
 
 ## Feature
 
