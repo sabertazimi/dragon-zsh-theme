@@ -1,0 +1,15 @@
+{
+  "alwaysThinkingEnabled": true,
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Write",
+      "Skill",
+      "WebFetch",
+      "WebSearch",
+      "mcp__plugin_sabertaz_context7"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

@@ -1,12 +1,18 @@
-# dragon-zsh-theme
+# dotfiles
 
 [![Author](https://img.shields.io/badge/author-sabertaz-lightgrey?style=for-the-badge)](https://github.com/sabertazimi)
-[![LICENSE](https://img.shields.io/github/license/sabertazimi/dragon-zsh-theme?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dragon-zsh-theme/main/LICENSE)
-[![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dragon-zsh-theme?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertazimi/dragon-zsh-theme)
+[![LICENSE](https://img.shields.io/github/license/sabertazimi/dotfiles?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dotfiles/main/LICENSE)
+[![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dotfiles?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertazimi/dotfiles)
 
-A minimalistic zsh (bash) prompt theme for git users.
+Hackable personal dotfiles.
 
-## Feature
+## Terminal Themes
+
+### Zsh Theme
+
+A minimalistic zsh prompt theme for git users.
+
+Features:
 
 - Pretty prefix prompt signature
 - Pretty color
@@ -15,15 +21,51 @@ A minimalistic zsh (bash) prompt theme for git users.
 - Git prompt info
 - Git status info
 
-![Zsh Screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/main/dragon-zsh-theme.png)
+Installation:
 
-## Bash Theme
+```bash
+# Clone this repo
+git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
 
-![Bash Screenshot](https://github.com/sabertazimi/dragon-zsh-theme/raw/main/dragon-bash-theme.png)
+# Install theme to custom directory
+mkdir -p ~/.oh-my-zsh/custom/themes
+cp ~/dotfiles/themes/zsh/dragon.zsh-theme ~/.oh-my-zsh/custom/themes/
+
+# Set theme in ~/.zshrc
+sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="dragon"/' ~/.zshrc
+
+# Reload shell
+source ~/.zshrc
+```
+
+![Zsh Theme](./screenshots/zsh.png)
+
+### Bash Theme
+
+A minimalistic bash prompt theme for git-bash on Windows.
+
+Installation:
+
+```bash
+# Clone this repo
+git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
+
+# Install theme to custom directory
+mkdir -p ~/.oh-my-bash/custom/themes/dragon
+cp ~/dotfiles/themes/bash/dragon.theme.sh ~/.oh-my-bash/custom/themes/dragon/
+
+# Set theme in ~/.bashrc
+sed -i 's/^OSH_THEME=".*"/OSH_THEME="dragon"/' ~/.bashrc
+
+# Reload shell
+source ~/.bashrc
+```
+
+![Bash Theme](./screenshots/bash.png)
 
 ## License
 
-MIT License Copyright (c) 2017 [sabertazimi](https://github.com/sabertazimi)
+MIT License Copyright (c) [Sabertaz](https://github.com/sabertazimi)
 
 ## Contact
 
