@@ -9,6 +9,7 @@ Hackable personal dotfiles.
 ```plaintext
 themes/           # Shell themes (zsh, bash)
 screenshots/      # Previews
+wallpapers/       # Wallpaper management scripts
 ```
 
 ## Commit

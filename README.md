@@ -63,6 +63,46 @@ source ~/.bashrc
 
 ![Bash Theme](./screenshots/bash.png)
 
+## Wallpapers
+
+Collection of wallpaper management scripts for Arch Linux.
+
+Features:
+
+- Copies Arch Linux, GNOME, and KDE Plasma wallpapers
+- Automatic package installation
+- Resolution priority selection for system wallpapers
+- `.jxl` to `.png` conversion for GNOME wallpapers
+- Interactive or command-line usage
+
+Installation:
+
+```bash
+# Clone this repo
+git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
+
+# Make scripts executable
+chmod +x ~/dotfiles/wallpapers/*.sh
+
+# Run interactive menu
+~/dotfiles/wallpapers/install.sh
+
+# Or run specific script
+~/dotfiles/wallpapers/install.sh all        # All wallpapers
+~/dotfiles/wallpapers/install.sh archlinux  # Arch Linux wallpapers
+~/dotfiles/wallpapers/install.sh gnome      # GNOME wallpapers
+~/dotfiles/wallpapers/install.sh system     # System wallpapers
+```
+
+Wallpapers are copied to `~/.local/share/wallpapers/`.
+
+Requirements:
+
+- ImageMagick (for GNOME `.jxl` conversion)
+- `archlinux-wallpaper`
+- `gnome-backgrounds`
+- `plasma-workspace-wallpapers`
+
 ## License
 
 MIT License Copyright (c) [Sabertaz](https://github.com/sabertazimi)
