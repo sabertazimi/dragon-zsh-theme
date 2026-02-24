@@ -33,6 +33,7 @@ declare -A SCRIPTS=(
     ["2"]="arch.sh:Arch Linux wallpapers"
     ["3"]="gnome.sh:GNOME wallpapers (requires ImageMagick)"
     ["4"]="kde.sh:KDE Plasma wallpapers by resolution"
+    ["5"]="third-party.sh:Third-party wallpapers (download from URLs)"
     ["q"]="quit:Exit"
 )
 
@@ -73,6 +74,7 @@ run_all() {
     run_script "arch.sh" || failed=$((failed + 1))
     run_script "gnome.sh" || failed=$((failed + 1))
     run_script "kde.sh" || failed=$((failed + 1))
+    run_script "third-party.sh" || failed=$((failed + 1))
 
     if [[ $failed -eq 0 ]]; then
         echo "All scripts completed successfully!"
@@ -94,6 +96,7 @@ show_menu() {
     echo "  2 - Arch Linux wallpapers"
     echo "  3 - GNOME wallpapers"
     echo "  4 - KDE Plasma wallpapers"
+    echo "  5 - Third-party wallpapers (download from URLs)"
     echo "  q - Quit"
     echo ""
 }
@@ -118,9 +121,12 @@ main() {
             4|kde)
                 run_script "kde.sh"
                 ;;
+            5|third-party|third)
+                run_script "third-party.sh"
+                ;;
             *)
                 echo "Unknown option: $1" >&2
-                echo "Usage: $0 [1|2|3|4|all|archlinux|gnome|kde]" >&2
+                echo "Usage: $0 [1|2|3|4|5|all|archlinux|gnome|kde|third-party]" >&2
                 echo "   Or run without arguments for interactive menu" >&2
                 exit 1
                 ;;
@@ -145,6 +151,9 @@ main() {
             ;;
         4|kde)
             run_script "kde.sh"
+            ;;
+        5|third-party|third)
+            run_script "third-party.sh"
             ;;
         q|quit|exit)
             echo "Exiting..."

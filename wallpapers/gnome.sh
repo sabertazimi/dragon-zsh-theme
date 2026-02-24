@@ -42,14 +42,14 @@ while IFS= read -r -d '' file || [[ -n "$file" ]]; do
     filename=$(basename "$file")
     if cp -n "$file" "$TEMP_DIR/$filename"; then
         count=$((count + 1))
-        echo "  Copied: $filename"
+        echo "  ✓ Copied: $filename"
     else
-        echo "  Warning: Failed to copy $filename" >&2
+        echo "  ✗ Failed to copy: $filename" >&2
     fi
 done < <(command find "$SOURCE_DIR" -maxdepth 1 -type f -iname "*-d.jxl" -print0)
 
 if [[ $count -eq 0 ]]; then
-    echo "No .jxl files found in $SOURCE_DIR"
+    echo "✗ No .jxl files found in $SOURCE_DIR"
     exit 0
 fi
 
@@ -86,10 +86,10 @@ for png_file in *.png; do
     [[ -f "$png_file" ]] || continue
     if cp -n "$png_file" "$TARGET_DIR/$png_file"; then
         moved=$((moved + 1))
-        echo "  Moved: $png_file"
+        echo "  ✓ Moved: $png_file"
     else
-        echo "  Warning: Failed to move $png_file" >&2
+        echo "  ✗ Failed to move: $png_file" >&2
     fi
 done
 
-echo "Complete: $moved wallpaper(s) copied to $TARGET_DIR"
+echo "✓ Complete: $moved wallpaper(s) copied to $TARGET_DIR"

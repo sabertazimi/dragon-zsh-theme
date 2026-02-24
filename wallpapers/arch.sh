@@ -26,11 +26,11 @@ for ext in png jpg jpeg; do
         filename=$(basename "$file")
         if cp -n "$file" "$TARGET_DIR/$filename"; then
             count=$((count + 1))
-            echo "  Copied: $filename"
+            echo "  ✓ Copied: $filename"
         else
-            echo "  Warning: Failed to copy $filename" >&2
+            echo "  ✗ Failed to copy: $filename" >&2
         fi
     done < <(command find "$SOURCE_DIR" -maxdepth 1 -type f -iname "*.$ext" -print0)
 done
 
-echo "Copied $count wallpaper(s) to $TARGET_DIR"
+echo "✓ Complete: $count wallpaper(s) copied to $TARGET_DIR"

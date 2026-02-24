@@ -12,6 +12,7 @@ TARGET_DIR="$HOME/.local/share/wallpapers"
 RESOLUTIONS=(
     "5120x2880.png" "5120x2880.jpg" "5120x2880.jpeg"
     "3840x2160.png" "3840x2160.jpg" "3840x2160.jpeg"
+    "2560x1600.png" "2560x1600.jpg" "2560x1600.jpeg"
     "2560x1440.png" "2560x1440.jpg" "2560x1440.jpeg"
     "1920x1080.png" "1920x1080.jpg" "1920x1080.jpeg"
 )
@@ -41,7 +42,7 @@ for wallpaper_dir in "$SOURCE_BASE"/*/; do
 
     # Check if images directory exists
     if [[ ! -d "$images_dir" ]]; then
-        echo "  Skipping '$name': no 'contents/images' subdirectory" >&2
+        echo "  ✗ Skipping '$name': no 'contents/images' subdirectory" >&2
         skipped=$((skipped + 1))
         continue
     fi
@@ -54,10 +55,10 @@ for wallpaper_dir in "$SOURCE_BASE"/*/; do
             # Preserve original extension in filename
             target_filename="${name}_$resolution"
             if cp -n "$source_file" "$TARGET_DIR/$target_filename"; then
-                echo "  Copied: $name ($resolution)"
+                echo "  ✓ Copied: $name ($resolution)"
                 copied=$((copied + 1))
             else
-                echo "  Warning: Failed to copy $name ($resolution)" >&2
+                echo "  ✗ Failed to copy: $name ($resolution)" >&2
             fi
             found=true
             break
@@ -65,9 +66,9 @@ for wallpaper_dir in "$SOURCE_BASE"/*/; do
     done
 
     if [[ "$found" == false ]]; then
-        echo "  Skipping '$name': no matching resolution found" >&2
+        echo "  ✗ Skipping '$name': no matching resolution found" >&2
         skipped=$((skipped + 1))
     fi
 done
 
-echo "Complete: $copied wallpaper(s) copied, $skipped skipped"
+echo "✓ Complete: $copied wallpaper(s) copied, $skipped skipped"
