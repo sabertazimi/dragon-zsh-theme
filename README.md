@@ -109,6 +109,8 @@ source ~/.bashrc
 Dotfiles not synced:
 
 - `~/.gitconfig`
+- `~/.claude.json`
+- `~/.claude/settings.json`
 - `~/.config/niri/config.kdl`
 - `~/.config/niri/dms/binds.kdl`
 - `~/.config/DankMaterialShell/settings.json`
