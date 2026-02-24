@@ -1,0 +1,6 @@
+[general]
+copy-command = "wl-copy"
+focus-toggles-toolbars= true
+actions-on-right-click = ["save-to-clipboard"]
+initial-tool = "brush"
+zoom-factor=1.1

@@ -1,0 +1,13 @@
+# Add 'web' type.
+--type-add
+web:*.{html,css,js,jsx,ts,tsx,vue,svelte,astro}*
+
+# Search hidden files / directories (e.g. dotfiles) by default
+--hidden
+
+# Using glob patterns to include/exclude files or folders
+--glob
+!**/.git/*
+
+# Ignore case unless all caps
+--smart-case

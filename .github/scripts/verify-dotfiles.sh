@@ -15,8 +15,20 @@ echo "  Status clean"
 # Check key dotfiles exist
 echo "Checking managed files..."
 FILES=(
+  "$HOME/.cargo/config.toml"
+  "$HOME/.claude.json"
+  "$HOME/.claude/settings.json"
+  "$HOME/.config/environment.d/90-dms.conf"
+  "$HOME/.config/fcitx5/rime/conf/classicui.conf"
+  "$HOME/.config/ghostty/config"
+  "$HOME/.config/matugen/config.toml"
+  "$HOME/.config/matugen/templates/starship.toml"
+  "$HOME/.config/mpv/mpv.conf"
+  "$HOME/.config/satty/config.toml"
+  "$HOME/.gitmsg.md"
+  "$HOME/.local/share/fcitx5/rime/default.custom.yaml"
+  "$HOME/.ripgreprc"
   "$HOME/.zshrc"
-  "$HOME/.config/matugen"
 )
 
 for file in "${FILES[@]}"; do
