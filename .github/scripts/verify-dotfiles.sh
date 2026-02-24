@@ -16,8 +16,6 @@ echo "  Status clean"
 echo "Checking managed files..."
 FILES=(
   "$HOME/.cargo/config.toml"
-  "$HOME/.claude.json"
-  "$HOME/.claude/settings.json"
   "$HOME/.config/environment.d/90-dms.conf"
   "$HOME/.config/fcitx5/rime/conf/classicui.conf"
   "$HOME/.config/ghostty/config"
