@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:multilib-devel
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install chezmoi
+        run: |
+          pacman -Syu --noconfirm --needed chezmoi
+      - name: Init and apply dotfiles
+        run: |
+          chezmoi init --apply sabertazimi
+      - name: Verify dotfiles
+        run: |
+          .github/scripts/verify-dotfiles.sh
