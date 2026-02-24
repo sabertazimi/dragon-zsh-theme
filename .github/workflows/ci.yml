@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v4
+      - name: Install chezmoi
+        run: |
+          pacman -S --noconfirm chezmoi
