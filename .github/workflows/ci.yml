@@ -22,7 +22,7 @@ jobs:
           pacman -Syu --noconfirm --needed chezmoi
       - name: Init and apply dotfiles
         run: |
-          chezmoi init --apply sabertazimi
+          chezmoi init --apply -v sabertazimi
       - name: Verify dotfiles
         run: |
           .github/scripts/verify-dotfiles.sh
