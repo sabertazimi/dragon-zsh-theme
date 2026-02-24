@@ -9,12 +9,21 @@ on:
 
 jobs:
   e2e:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     container:
       image: archlinux:latest
     steps:
-      - name: Checkout repository 
+      - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install chezmoi
         run: |
-          pacman -Sy --noconfirm chezmoi
+          pacman -Syu --noconfirm --needed chezmoi
+      - name: Init and apply dotfiles
+        run: |
+          chezmoi init --apply sabertazimi
+      - name: Verify dotfiles
+        run: |
+          chezmoi status
+          chezmoi doctor
