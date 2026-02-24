@@ -5,4 +5,4 @@ replace-with = 'ustc'
 registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
 
 [registries.ustc]
-index = "sparse+https://mirrors.ustc.edu.cn/creates.io-index/"
+index = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
