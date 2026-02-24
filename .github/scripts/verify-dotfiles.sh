@@ -17,7 +17,7 @@ echo "Checking managed files..."
 FILES=(
   "$HOME/.cargo/config.toml"
   "$HOME/.config/environment.d/90-dms.conf"
-  "$HOME/.config/fcitx5/rime/conf/classicui.conf"
+  "$HOME/.config/fcitx5/conf/classicui.conf"
   "$HOME/.config/ghostty/config"
   "$HOME/.config/matugen/config.toml"
   "$HOME/.config/matugen/templates/starship.toml"
