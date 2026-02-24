@@ -4,11 +4,11 @@
 [![LICENSE](https://img.shields.io/github/license/sabertazimi/dotfiles?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dotfiles/main/LICENSE)
 [![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dotfiles?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertazimi/dotfiles)
 
-Hackable personal dotfiles.
+Hackable personal dotfiles managed with [chezmoi](https://github.com/twpayne/chezmoi).
 
 ## Installation
 
-Set up new machine with [chezmoi](https://github.com/twpayne/chezmoi):
+Set up new machine:
 
 ```bash
 sudo pacman -S chezmoi
@@ -19,33 +19,29 @@ chezmoi init --apply -v sabertazimi
 git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
 ```
 
-## Terminal Themes
+## Configured Applications
 
-### Zsh Theme
+### Development
 
-Minimalistic zsh prompt theme for git users:
+- **Cargo**: Rust package manager with USTC mirror
+- **Ripgrep**: Enhanced search with web file types
+- **Git**: Conventional commit templates
 
-```bash
-mkdir -p ~/.oh-my-zsh/custom/themes
-cp ~/dotfiles/themes/zsh/dragon.zsh-theme ~/.oh-my-zsh/custom/themes/
-sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="dragon"/' ~/.zshrc
-source ~/.zshrc
-```
+### Terminal & Shell
 
-![Zsh Theme](./screenshots/zsh.png)
+- **Zsh**: Oh My Zsh with modern CLI tools (mise, zoxide, fzf, starship)
+- **Ghostty**: Modern Wayland terminal with dankcolors theme
+- **Starship**: Dynamic prompt via matugen (Material You theming)
 
-### Bash Theme
+### Utilities
 
-Minimalistic bash prompt theme for git-bash on Windows:
+- **MPV**: Hardware-accelerated video player
+- **Satty**: Wayland screenshot annotation tool
+- **Fcitx5-Rime**: Chinese input with vertical candidates and dark theme
 
-```bash
-mkdir -p ~/.oh-my-bash/custom/themes/dragon
-cp ~/dotfiles/themes/bash/dragon.theme.sh ~/.oh-my-bash/custom/themes/dragon/
-sed -i 's/^OSH_THEME=".*"/OSH_THEME="dragon"/' ~/.bashrc
-source ~/.bashrc
-```
+### Themes
 
-![Bash Theme](./screenshots/bash.png)
+- **Matugen**: Material You color scheme generator from wallpaper
 
 ## Wallpapers
 
@@ -79,6 +75,44 @@ Requirements:
 - `archlinux-wallpaper`
 - `gnome-backgrounds`
 - `plasma-workspace-wallpapers`
+
+## Shell Themes
+
+### Zsh Theme
+
+Minimalistic zsh prompt theme for git users:
+
+```bash
+mkdir -p ~/.oh-my-zsh/custom/themes
+cp ~/dotfiles/themes/zsh/dragon.zsh-theme ~/.oh-my-zsh/custom/themes/
+sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="dragon"/' ~/.zshrc
+source ~/.zshrc
+```
+
+![Zsh Theme](./screenshots/zsh.png)
+
+### Bash Theme
+
+Minimalistic bash prompt theme for git-bash on Windows:
+
+```bash
+mkdir -p ~/.oh-my-bash/custom/themes/dragon
+cp ~/dotfiles/themes/bash/dragon.theme.sh ~/.oh-my-bash/custom/themes/dragon/
+sed -i 's/^OSH_THEME=".*"/OSH_THEME="dragon"/' ~/.bashrc
+source ~/.bashrc
+```
+
+![Bash Theme](./screenshots/bash.png)
+
+## Caveats
+
+Dotfiles not synced:
+
+- `~/.gitconfig`
+- `~/.config/niri/config.kdl`
+- `~/.config/niri/dms/binds.kdl`
+- `~/.config/DankMaterialShell/settings.json`
+- `~/.local/state/DankMaterialShell/session.json`
 
 ## License
 
