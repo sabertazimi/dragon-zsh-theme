@@ -25,5 +25,4 @@ jobs:
           chezmoi init --apply sabertazimi
       - name: Verify dotfiles
         run: |
-          chezmoi status
-          chezmoi doctor
+          .github/scripts/verify-dotfiles.sh
