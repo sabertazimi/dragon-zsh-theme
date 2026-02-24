@@ -17,7 +17,7 @@ private_dot_*/    # Managed dotfiles (private)
 ## Chezmoi Conventions
 
 - `dot_*` files are installed to `~/.*` (e.g., `dot_zshrc` → `~/.zshrc`)
-- `private_dot_*` files are encrypted/private (e.g., `private_dot_claude/` → `~/.claude/`)
+- `private_dot_*` files are private (e.g., `private_dot_claude/` → `~/.claude/`)
 - Files under `dot_config/` install to `~/.config/`
 - Files under `dot_local/` install to `~/.local/`
 
