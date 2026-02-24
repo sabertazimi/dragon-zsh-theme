@@ -6,35 +6,29 @@
 
 Hackable personal dotfiles.
 
+## Installation
+
+Set up new machine with [chezmoi](https://github.com/twpayne/chezmoi):
+
+```bash
+sudo pacman -S chezmoi
+chezmoi init --apply -v sabertazimi
+```
+
+```bash
+git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
+```
+
 ## Terminal Themes
 
 ### Zsh Theme
 
-A minimalistic zsh prompt theme for git users.
-
-Features:
-
-- Pretty prefix prompt signature
-- Pretty color
-- Current directory
-- Time stamp
-- Git prompt info
-- Git status info
-
-Installation:
+Minimalistic zsh prompt theme for git users:
 
 ```bash
-# Clone this repo
-git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
-
-# Install theme to custom directory
 mkdir -p ~/.oh-my-zsh/custom/themes
 cp ~/dotfiles/themes/zsh/dragon.zsh-theme ~/.oh-my-zsh/custom/themes/
-
-# Set theme in ~/.zshrc
 sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="dragon"/' ~/.zshrc
-
-# Reload shell
 source ~/.zshrc
 ```
 
@@ -42,22 +36,12 @@ source ~/.zshrc
 
 ### Bash Theme
 
-A minimalistic bash prompt theme for git-bash on Windows.
-
-Installation:
+Minimalistic bash prompt theme for git-bash on Windows:
 
 ```bash
-# Clone this repo
-git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
-
-# Install theme to custom directory
 mkdir -p ~/.oh-my-bash/custom/themes/dragon
 cp ~/dotfiles/themes/bash/dragon.theme.sh ~/.oh-my-bash/custom/themes/dragon/
-
-# Set theme in ~/.bashrc
 sed -i 's/^OSH_THEME=".*"/OSH_THEME="dragon"/' ~/.bashrc
-
-# Reload shell
 source ~/.bashrc
 ```
 
@@ -65,22 +49,15 @@ source ~/.bashrc
 
 ## Wallpapers
 
-Collection of wallpaper management scripts for Arch Linux.
+Collection of wallpaper management scripts for Arch Linux:
 
-Features:
-
-- Copies Arch Linux, GNOME, and KDE Plasma wallpapers
-- Automatic package installation
-- Resolution priority selection for system wallpapers
-- `.jxl` to `.png` conversion for GNOME wallpapers
 - Interactive or command-line usage
-
-Installation:
+- Automatic package installation
+- Copies Arch Linux, GNOME, and KDE Plasma wallpapers
+- `.jxl` to `.png` conversion for GNOME wallpapers
+- Resolution priority selection for KDE Plasma wallpapers
 
 ```bash
-# Clone this repo
-git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
-
 # Make scripts executable
 chmod +x ~/dotfiles/wallpapers/*.sh
 
@@ -91,7 +68,7 @@ chmod +x ~/dotfiles/wallpapers/*.sh
 ~/dotfiles/wallpapers/install.sh all        # All wallpapers
 ~/dotfiles/wallpapers/install.sh archlinux  # Arch Linux wallpapers
 ~/dotfiles/wallpapers/install.sh gnome      # GNOME wallpapers
-~/dotfiles/wallpapers/install.sh system     # System wallpapers
+~/dotfiles/wallpapers/install.sh kde        # KDE Plasma wallpapers
 ```
 
 Wallpapers are copied to `~/.local/share/wallpapers/`.
