@@ -32,6 +32,9 @@ chezmoi init --apply -v sabertazimi
 git clone https://github.com/sabertazimi/dotfiles.git ~/dotfiles
 ```
 
+See [Arch Linux setup guide](https://notes.tazimi.dev/programming/linux/arch)
+for detailed system configuration.
+
 ## Configured Applications
 
 ### Development
