@@ -84,7 +84,7 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url dharmx walls monochrome/a_black_and_white_building_with_a_fire_escape.jpg)"
     "$(github_raw_url dharmx walls mountain/a_mountain_with_snow_on_top_and_a_body_of_water.jpg)"
     "$(github_raw_url dharmx walls nature/a_body_of_water_with_a_lit_up_tower_in_the_middle.png)"
-    "$(github_raw_url dharmx walls nord/a_city_skyline_with_water_reflection.png)"
+    "$(github_raw_url dharmx walls nord/a_cartoon_of_a_woman_on_a_balcony.png)"
     "$(github_raw_url dharmx walls outrun/a_street_with_buildings_and_signs.png)"
     "$(github_raw_url dharmx walls painting/a_pool_with_chairs_and_palm_trees.jpg)"
     "$(github_raw_url dharmx walls pixel/a_video_game_screen_with_trees_and_bushes.jpg)"
