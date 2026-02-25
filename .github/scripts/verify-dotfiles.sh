@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+CHEZMOI_LOG="${1:-}"
+
 echo "==> Verifying dotfiles setup..."
 
-# Verify chezmoi status is clean
 echo "Checking chezmoi status..."
 if [ -n "$(chezmoi status 2>/dev/null | grep -v '^$')" ]; then
   echo "Error: chezmoi status shows pending changes"
@@ -12,7 +13,6 @@ if [ -n "$(chezmoi status 2>/dev/null | grep -v '^$')" ]; then
 fi
 echo "  Status clean"
 
-# Check key dotfiles exist
 echo "Checking managed files..."
 FILES=(
   "$HOME/.cargo/config.toml"
@@ -36,5 +36,75 @@ for file in "${FILES[@]}"; do
   fi
   echo "  ✓ $file"
 done
+
+if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
+  echo "Checking applied files match expected list..."
+
+  UNEXPECTED_FILES=""
+  MISSING_FILES=""
+
+  mapfile -t APPLIED_ARRAY < <(
+    awk '
+      /^diff --git a/ { diff_line = $0; next }
+      /^new file mode 1[0-9][0-9][0-9][0-9]/ && diff_line != "" {
+        match(diff_line, / b\/([^ ]+)/, m)
+        print ENVIRON["HOME"] "/" m[1]
+        diff_line = ""
+      }
+    ' "$CHEZMOI_LOG" | sort -u
+  )
+
+  for actual_file in "${APPLIED_ARRAY[@]}"; do
+    [ -z "$actual_file" ] && continue
+
+    is_expected=false
+    for expected_file in "${FILES[@]}"; do
+      if [ "$actual_file" = "$expected_file" ]; then
+        is_expected=true
+        break
+      fi
+    done
+
+    if [ "$is_expected" = true ]; then
+      echo "  ✓ $actual_file"
+    else
+      echo "  ✗ $actual_file (unexpected)"
+      UNEXPECTED_FILES="${UNEXPECTED_FILES}  - ${actual_file}"$'\n'
+    fi
+  done
+
+  for file in "${FILES[@]}"; do
+    is_found=false
+    for applied_file in "${APPLIED_ARRAY[@]}"; do
+      if [ "$file" = "$applied_file" ]; then
+        is_found=true
+        break
+      fi
+    done
+
+    if [ "$is_found" = false ]; then
+      echo "  ✗ $file (missing)"
+      MISSING_FILES="${MISSING_FILES}  - ${file}"$'\n'
+    fi
+  done
+
+  if [ -n "$UNEXPECTED_FILES" ]; then
+    echo "Error: Found unexpected files applied by chezmoi (not in expected list):"
+    echo "$UNEXPECTED_FILES"
+    echo "This may indicate .chezmoiignore is missing entries."
+    echo "Please update .chezmoiignore or add the file to the expected list in verify-dotfiles.sh"
+    exit 1
+  fi
+
+  if [ -n "$MISSING_FILES" ]; then
+    echo "Error: Expected files were not applied by chezmoi:"
+    echo "$MISSING_FILES"
+    exit 1
+  fi
+
+  echo "  Applied files match expected list (${#APPLIED_ARRAY[@]} files)"
+else
+  echo "Warning: No chezmoi log provided, skipping applied files comparison"
+fi
 
 echo "==> All verifications passed"
