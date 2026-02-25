@@ -106,6 +106,7 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url dharmx walls monochrome/a_black_and_white_building_with_a_fire_escape.jpg)#monochrome_building.jpg"
     "$(github_raw_url dharmx walls mountain/a_mountain_with_snow_on_top_and_a_body_of_water.jpg)#mountain_water.jpg"
     "$(github_raw_url dharmx walls nature/a_body_of_water_with_a_lit_up_tower_in_the_middle.png)#nature_tower.png"
+    "$(github_raw_url dharmx walls nord/a_cartoon_of_a_woman_on_a_balcony.png)#nord_balcony.png"
     "$(github_raw_url dharmx walls outrun/a_street_with_buildings_and_signs.png)#outrun_street.png"
     "$(github_raw_url dharmx walls painting/a_pool_with_chairs_and_palm_trees.jpg)#painting_pool.jpg"
     "$(github_raw_url dharmx walls poly/a_green_mountains_with_pink_and_blue_sky.jpg)#poly_mountains.jpg"
@@ -116,7 +117,6 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url D3Ext aesthetic-wallpapers images/red-forest.jpg)#red_forest.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2009/08/02/00/05/54/5435590_p0.jpg)#summer_station.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2010/08/30/00/32/39/12904418_p0.jpg)#summer_day.jpg"
-    "$(pixiv_url https://i.pximg.net/img-original/img/2010/09/25/00/08/06/13461444_p0.png)#green_land.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2013/05/05/06/56/13/35470184_p0.jpg)#walking_sky.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2013/06/25/20/32/44/36633503_p0.jpg)#sea_of_starlit_illusions.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2013/08/17/00/19/26/37855635_p0.jpg)#galaxy.jpg"
@@ -126,7 +126,6 @@ declare -a DEFAULT_URLS=(
     "$(pixiv_url https://i.pximg.net/img-original/img/2015/08/01/18/14/45/51711470_p0.jpg)#saber.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2016/03/06/02/28/13/55647411_p0.jpg)#lake.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2018/01/26/12/52/04/50140585_p0.jpg)#rainy_day.jpg"
-    "$(pixiv_url https://i.pximg.net/img-original/img/2018/02/16/21/22/51/67308965_p0.jpg)#nord_balcony.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2018/03/31/01/10/08/67994735_p0.png)#kyrielight.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2018/09/25/00/00/01/70858371_p0.jpg)#sunset.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/05/27/19/00/40/74932889_p0.jpg)#sea_surface.jpg"
@@ -134,7 +133,6 @@ declare -a DEFAULT_URLS=(
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/09/18/06/05/15/76841597_p0.png)#kyogre.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/10/14/00/00/02/77277379_p0.png)#groudon.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2020/05/07/00/00/13/81363134_p0.png)#volcarona.png"
-    "$(pixiv_url https://i.pximg.net/img-original/img/2020/05/22/04/05/55/81754094_p0.jpg)#carriage.jpg"
 )
 
 # Use provided URLs or defaults
