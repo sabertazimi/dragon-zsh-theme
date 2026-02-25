@@ -40,6 +40,9 @@ done
 if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
   echo "Checking applied files match expected list..."
 
+  UNEXPECTED_FILES=""
+  MISSING_FILES=""
+
   mapfile -t APPLIED_ARRAY < <(
     awk '
       /^diff --git a/ { diff_line = $0; next }
