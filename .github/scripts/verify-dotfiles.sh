@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+CHEZMOI_LOG="${1:-}"
+
 echo "==> Verifying dotfiles setup..."
 
 # Verify chezmoi status is clean
@@ -36,5 +38,74 @@ for file in "${FILES[@]}"; do
   fi
   echo "  ✓ $file"
 done
+
+# Compare actual applied files with expected list
+if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
+  echo "Checking applied files match expected list..."
+
+  # Parse chezmoi verbose output to extract managed files
+  # Look for lines like "creating file", "updating file", "file already exists"
+  ACTUAL_FILES=$(grep -E '(creating|updating|removing) (file|symlink|directory)' "$CHEZMOI_LOG" | \
+    sed -E 's/.* (file|symlink|directory) (.*)/\2/' | \
+    sort -u)
+
+  # Build expected files list with proper separators for comparison
+  EXPECTED=""
+  for file in "${FILES[@]}"; do
+    EXPECTED="${EXPECTED}${file}"$'\n'
+  done
+
+  # Check for unexpected files
+  UNEXPECTED_FILES=""
+  while IFS= read -r actual_file; do
+    # Skip empty lines
+    [ -z "$actual_file" ] && continue
+
+    # Check if this file is in our expected list
+    is_expected=false
+    for expected_file in "${FILES[@]}"; do
+      if [ "$actual_file" = "$expected_file" ]; then
+        is_expected=true
+        break
+      fi
+    done
+
+    if [ "$is_expected" = false ]; then
+      UNEXPECTED_FILES="${UNEXPECTED_FILES}  - ${actual_file}"$'\n'
+    fi
+  done <<< "$ACTUAL_FILES"
+
+  if [ -n "$UNEXPECTED_FILES" ]; then
+    echo "Error: Found unexpected files applied by chezmoi (not in expected list):"
+    echo "$UNEXPECTED_FILES"
+    echo "This may indicate .chezmoiignore is missing entries."
+    echo "Please update .chezmoiignore or add the file to the expected list in verify-dotfiles.sh"
+    exit 1
+  fi
+
+  # Check for missing files (files in expected list but not applied)
+  APPLIED_FILES=""
+  while IFS= read -r actual_file; do
+    [ -z "$actual_file" ] && continue
+    APPLIED_FILES="${APPLIED_FILES}${actual_file}"$'\n'
+  done <<< "$ACTUAL_FILES"
+
+  MISSING_FILES=""
+  for file in "${FILES[@]}"; do
+    if ! echo "$APPLIED_FILES" | grep -qx "$file"; then
+      MISSING_FILES="${MISSING_FILES}  - ${file}"$'\n'
+    fi
+  done
+
+  if [ -n "$MISSING_FILES" ]; then
+    echo "Error: Expected files were not applied by chezmoi:"
+    echo "$MISSING_FILES"
+    exit 1
+  fi
+
+  echo "  Applied files match expected list"
+else
+  echo "Warning: No chezmoi log provided, skipping applied files comparison"
+fi
 
 echo "==> All verifications passed"
