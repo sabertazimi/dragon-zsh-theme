@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Download third-party wallpapers from URLs
-# Usage: third-party.sh [URL...]
+# Usage: third-party.sh [URL[#name]...]
+#   URL        - Download URL
+#   URL#name   - Download URL with custom filename (e.g., "http://example.com/img.jpg#my-name.jpg")
 
 set -euo pipefail
 
@@ -26,29 +28,51 @@ github_raw_url() {
     echo "https://raw.githubusercontent.com/${user}/${repo}/${branch}/${path}"
 }
 
+# Pixiv URL
+# Example: pixiv_url https://i.pximg.net/img-original/img/2013/06/25/20/32/44/36633503_p0.jpg
+pixiv_url() {
+    echo "$1"
+}
+
 # Download with retry mechanism
-# Args: url target_path retries
+# Args: url target_path retries [referer] [display_name]
 download_with_retry() {
     local url="$1"
     local target_path="$2"
     local max_retries="${3:-$MAX_RETRIES}"
-    local filename=$(basename "$url")
+    local referer="${4:-}"
+    local display_name="${5:-$(basename "$url")}"
     local attempt=1
+    local curl_opts=(-fsSL --max-time 10)
+
+    # Auto-detect pixiv URLs if referer not provided
+    if [[ -z "$referer" ]]; then
+        # Extract domain and check if it's pixiv's image server
+        local domain="${url#*//}"
+        domain="${domain%%/*}"
+        # Check for pximg.net (pixiv's image domain)
+        local check="${domain//p*x*m*g.net/XXX}"
+        if [[ "$check" != "$domain" ]]; then
+            referer="https://www.pixiv.net"
+        fi
+    fi
+
+    [[ -n "$referer" ]] && curl_opts+=(-H "Referer: $referer")
 
     while (( attempt <= max_retries )); do
-        if curl -fsSL --max-time 10 -o "$target_path" "$url"; then
-            echo "  ✓ Saved: $filename"
+        if curl "${curl_opts[@]}" -o "$target_path" "$url"; then
+            echo "  ✓ Saved: $display_name"
             return 0
         else
             if (( attempt < max_retries )); then
-                echo "  ⚠ Retry $attempt/$max_retries for $filename..." >&2
+                echo "  ⚠ Retry $attempt/$max_retries for $display_name..." >&2
                 sleep 1  # Brief delay before retry
             fi
         fi
         ((attempt++))
     done
 
-    echo "  ✗ Failed: $filename (after $max_retries attempts)" >&2
+    echo "  ✗ Failed: $display_name (after $max_retries attempts)" >&2
     rm -f "$target_path"
     return 1
 }
@@ -92,6 +116,7 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url D3Ext aesthetic-wallpapers images/manga.png)"
     "$(github_raw_url D3Ext aesthetic-wallpapers images/neocity.png)"
     "$(github_raw_url D3Ext aesthetic-wallpapers images/red-forest.jpg)"
+    "$(pixiv_url https://i.pximg.net/img-original/img/2013/06/25/20/32/44/36633503_p0.jpg)#sea_of_starlit_illusions.jpg"
 )
 
 # Use provided URLs or defaults
@@ -103,8 +128,16 @@ mkdir -p "$TEMP_DIR/results"
 echo "Downloading third-party wallpapers to $TARGET_DIR (using $(nproc) parallel jobs)..."
 
 skipped_counter=0
-for url in "${URLS[@]}"; do
-    filename=$(basename "$url")
+for entry in "${URLS[@]}"; do
+    # Parse URL and optional custom name (url#name format)
+    if [[ "$entry" == *'#'* ]]; then
+        url="${entry%#*}"
+        custom_name="${entry##*#}"
+        filename="$custom_name"
+    else
+        url="$entry"
+        filename=$(basename "$url")
+    fi
     target_path="$TARGET_DIR/$filename"
 
     # Skip if file already exists
@@ -117,7 +150,7 @@ for url in "${URLS[@]}"; do
     echo "  Downloading: $filename"
     # Use background jobs for parallel download
     (
-        if download_with_retry "$url" "$target_path"; then
+        if download_with_retry "$url" "$target_path" "$MAX_RETRIES" "" "$filename"; then
             touch "$TEMP_DIR/results/success.$BASHPID"
         else
             touch "$TEMP_DIR/results/failed.$BASHPID"
