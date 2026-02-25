@@ -7,6 +7,14 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Scripts to run
+declare -ra SCRIPTS=(
+    "arch.sh"
+    "gnome.sh"
+    "kde.sh"
+    "third-party.sh"
+)
+
 # Statistics tracking
 declare -A STATS=(
     ["arch_copied"]=0
@@ -192,10 +200,9 @@ run_all() {
     echo "Running all wallpaper copy scripts..."
     local failed=0
 
-    run_script "arch.sh" || failed=$((failed + 1))
-    run_script "gnome.sh" || failed=$((failed + 1))
-    run_script "kde.sh" || failed=$((failed + 1))
-    run_script "third-party.sh" || failed=$((failed + 1))
+    for script in "${SCRIPTS[@]}"; do
+        run_script "$script" || failed=$((failed + 1))
+    done
 
     # Show summary after all scripts complete
     show_summary
@@ -241,6 +248,8 @@ main() {
             echo "Unknown option: $1" >&2
             echo "Usage: $0 [1|2|3|4|5|all|archlinux|gnome|kde|third-party]" >&2
             echo "   Or run without arguments to execute all scripts" >&2
+            echo "" >&2
+            echo "Note: To customize which scripts run by default, edit the SCRIPTS array at the top of this file." >&2
             exit 1
             ;;
     esac
