@@ -87,7 +87,11 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url dharmx walls outrun/a_street_with_buildings_and_signs.png)"
     "$(github_raw_url dharmx walls painting/a_pool_with_chairs_and_palm_trees.jpg)"
     "$(github_raw_url dharmx walls poly/a_green_mountains_with_pink_and_blue_sky.jpg)"
-    "$(github_raw_url dharmx walls radium/a_drawing_of_an_astronaut_in_space.png)"
+    "$(github_raw_url D3Ext aesthetic-wallpapers images/acrylic.jpg)"
+    "$(github_raw_url D3Ext aesthetic-wallpapers images/astronaut.jpg)"
+    "$(github_raw_url D3Ext aesthetic-wallpapers images/manga.png)"
+    "$(github_raw_url D3Ext aesthetic-wallpapers images/neocity.png)"
+    "$(github_raw_url D3Ext aesthetic-wallpapers images/red-forest.jpg)"
 )
 
 # Use provided URLs or defaults
