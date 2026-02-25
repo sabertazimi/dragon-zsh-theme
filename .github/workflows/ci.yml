@@ -24,7 +24,7 @@ jobs:
           pacman -Syu --noconfirm --needed chezmoi
       - name: Init and apply dotfiles
         run: |
-          chezmoi init --apply -v sabertazimi 2>&1 | tee /tmp/chezmoi-apply.log
+          chezmoi init --apply -v --source=$PWD --force 2>&1 | tee /tmp/chezmoi-apply.log
       - name: Verify dotfiles
         run: |
           .github/scripts/verify-dotfiles.sh /tmp/chezmoi-apply.log
