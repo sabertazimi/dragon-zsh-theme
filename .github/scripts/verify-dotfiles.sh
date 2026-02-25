@@ -5,7 +5,6 @@ CHEZMOI_LOG="${1:-}"
 
 echo "==> Verifying dotfiles setup..."
 
-# Verify chezmoi status is clean
 echo "Checking chezmoi status..."
 if [ -n "$(chezmoi status 2>/dev/null | grep -v '^$')" ]; then
   echo "Error: chezmoi status shows pending changes"
@@ -14,7 +13,6 @@ if [ -n "$(chezmoi status 2>/dev/null | grep -v '^$')" ]; then
 fi
 echo "  Status clean"
 
-# Check key dotfiles exist
 echo "Checking managed files..."
 FILES=(
   "$HOME/.cargo/config.toml"
@@ -39,19 +37,13 @@ for file in "${FILES[@]}"; do
   echo "  ✓ $file"
 done
 
-# Compare actual applied files with expected list
 if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
   echo "Checking applied files match expected list..."
 
-  # Parse chezmoi verbose output to extract managed files (not directories)
-  # chezmoi uses diff format: "diff --git a/.cargo b/.cargo"
-  # Followed by: "new file mode 100644" (file) or "40755" (directory)
-  # We only want files (mode 10xxxx), not directories (mode 40xxx or 50xxx)
   mapfile -t APPLIED_ARRAY < <(
     awk '
       /^diff --git a/ { diff_line = $0; next }
       /^new file mode 1[0-9][0-9][0-9][0-9]/ && diff_line != "" {
-        # Extract path after " b/" from diff_line
         match(diff_line, / b\/([^ ]+)/, m)
         print ENVIRON["HOME"] "/" m[1]
         diff_line = ""
@@ -59,7 +51,6 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
     ' "$CHEZMOI_LOG" | sort -u
   )
 
-  # Verify each applied file is in the expected list
   for actual_file in "${APPLIED_ARRAY[@]}"; do
     [ -z "$actual_file" ] && continue
 
@@ -79,7 +70,6 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
     fi
   done
 
-  # Verify each expected file was applied
   for file in "${FILES[@]}"; do
     is_found=false
     for applied_file in "${APPLIED_ARRAY[@]}"; do
