@@ -20,11 +20,21 @@ fi
 
 echo "Copying Arch Linux wallpapers from $SOURCE_DIR..."
 count=0
+skipped=0
 for ext in png jpg jpeg; do
     file=""
     while IFS= read -r -d '' file || [[ -n "$file" ]]; do
         filename=$(basename "$file")
-        if cp -n "$file" "$TARGET_DIR/$filename"; then
+        target_path="$TARGET_DIR/$filename"
+
+        # Skip if file already exists
+        if [[ -f "$target_path" ]]; then
+            echo "  ⊝ Skipping (already exists): $filename"
+            skipped=$((skipped + 1))
+            continue
+        fi
+
+        if cp -n "$file" "$target_path"; then
             count=$((count + 1))
             echo "  ✓ Copied: $filename"
         else
@@ -33,4 +43,4 @@ for ext in png jpg jpeg; do
     done < <(command find "$SOURCE_DIR" -maxdepth 1 -type f -iname "*.$ext" -print0)
 done
 
-echo "✓ Complete: $count wallpaper(s) copied to $TARGET_DIR"
+echo "✓ Complete: $count wallpaper(s) copied, $skipped skipped"

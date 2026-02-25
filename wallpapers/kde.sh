@@ -54,7 +54,17 @@ for wallpaper_dir in "$SOURCE_BASE"/*/; do
         if [[ -f "$source_file" ]]; then
             # Preserve original extension in filename
             target_filename="${name}_$resolution"
-            if cp -n "$source_file" "$TARGET_DIR/$target_filename"; then
+            target_path="$TARGET_DIR/$target_filename"
+
+            # Skip if file already exists
+            if [[ -f "$target_path" ]]; then
+                echo "  ⊝ Skipping (already exists): $name ($resolution)"
+                skipped=$((skipped + 1))
+                found=true
+                break
+            fi
+
+            if cp -n "$source_file" "$target_path"; then
                 echo "  ✓ Copied: $name ($resolution)"
                 copied=$((copied + 1))
             else

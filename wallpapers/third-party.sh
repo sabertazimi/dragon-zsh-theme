@@ -36,7 +36,7 @@ download_with_retry() {
     local attempt=1
 
     while (( attempt <= max_retries )); do
-        if curl -fsSL -o "$target_path" "$url"; then
+        if curl -fsSL --max-time 10 -o "$target_path" "$url"; then
             echo "  ✓ Saved: $filename"
             return 0
         else
@@ -102,6 +102,7 @@ mkdir -p "$TEMP_DIR/results"
 
 echo "Downloading third-party wallpapers to $TARGET_DIR (using $(nproc) parallel jobs)..."
 
+skipped_counter=0
 for url in "${URLS[@]}"; do
     filename=$(basename "$url")
     target_path="$TARGET_DIR/$filename"
@@ -109,6 +110,7 @@ for url in "${URLS[@]}"; do
     # Skip if file already exists
     if [[ -f "$target_path" ]]; then
         echo "  ⊝ Skipping (already exists): $filename"
+        skipped_counter=$((skipped_counter + 1))
         continue
     fi
 
@@ -131,5 +133,6 @@ wait
 # Count results
 count=$(ls "$TEMP_DIR/results"/success.* 2>/dev/null | wc -l || true)
 failed=$(ls "$TEMP_DIR/results"/failed.* 2>/dev/null | wc -l || true)
+skipped=$skipped_counter
 
-echo "✓ Complete: $count wallpaper(s) downloaded, $failed failed"
+echo "✓ Complete: $count wallpaper(s) downloaded, $skipped skipped, $failed failed"

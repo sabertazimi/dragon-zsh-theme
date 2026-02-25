@@ -37,9 +37,20 @@ fi
 # Copy .jxl files to temp directory
 echo "Copying GNOME .jxl wallpapers from $SOURCE_DIR..."
 count=0
+skipped=0
 file=""
 while IFS= read -r -d '' file || [[ -n "$file" ]]; do
     filename=$(basename "$file")
+    png_filename="${filename%.jxl}.png"
+    target_path="$TARGET_DIR/$png_filename"
+
+    # Skip if PNG file already exists
+    if [[ -f "$target_path" ]]; then
+        echo "  ⊝ Skipping (already exists): $png_filename"
+        skipped=$((skipped + 1))
+        continue
+    fi
+
     if cp -n "$file" "$TEMP_DIR/$filename"; then
         count=$((count + 1))
         echo "  ✓ Copied: $filename"
@@ -49,7 +60,11 @@ while IFS= read -r -d '' file || [[ -n "$file" ]]; do
 done < <(command find "$SOURCE_DIR" -maxdepth 1 -type f -iname "*-d.jxl" -print0)
 
 if [[ $count -eq 0 ]]; then
-    echo "✗ No .jxl files found in $SOURCE_DIR"
+    if [[ $skipped -gt 0 ]]; then
+        echo "✓ Complete: 0 wallpaper(s) converted, $skipped skipped"
+    else
+        echo "✓ Complete: 0 wallpaper(s) converted, 0 skipped"
+    fi
     exit 0
 fi
 
@@ -82,9 +97,16 @@ converted=$(ls -1 *.png 2>/dev/null | wc -l)
 # Move .png files to target directory
 echo "Moving $converted .png file(s) to $TARGET_DIR..."
 moved=0
+move_skipped=0
 for png_file in *.png; do
     [[ -f "$png_file" ]] || continue
-    if cp -n "$png_file" "$TARGET_DIR/$png_file"; then
+    target_path="$TARGET_DIR/$png_file"
+    if [[ -f "$target_path" ]]; then
+        echo "  ⊝ Skipping (already exists): $png_file"
+        move_skipped=$((move_skipped + 1))
+        continue
+    fi
+    if cp -n "$png_file" "$target_path"; then
         moved=$((moved + 1))
         echo "  ✓ Moved: $png_file"
     else
@@ -92,4 +114,4 @@ for png_file in *.png; do
     fi
 done
 
-echo "✓ Complete: $moved wallpaper(s) copied to $TARGET_DIR"
+echo "✓ Complete: $moved wallpaper(s) converted, $((skipped + move_skipped)) skipped"
