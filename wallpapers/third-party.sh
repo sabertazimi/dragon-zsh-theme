@@ -78,7 +78,6 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url dharmx walls fogsmoke/a_bridge_with_clouds_in_the_sky.jpg)"
     "$(github_raw_url dharmx walls gruvbox/a_cartoon_of_a_man_standing_in_space.png)"
     "$(github_raw_url dharmx walls interior/a_room_with_a_wooden_cabinet_and_a_picture_frame.jpg)"
-    "$(github_raw_url dharmx walls logo/a_colorful_circle_with_lines_in_it.jpg)"
     "$(github_raw_url dharmx walls m-26.jp/a_group_of_people_running_on_a_concrete_wall_next_to_a_lighthouse.jpg)"
     "$(github_raw_url dharmx walls minimal/a_cartoon_of_a_island_with_a_bridge_and_trees.jpg)"
     "$(github_raw_url dharmx walls monochrome/a_black_and_white_building_with_a_fire_escape.jpg)"
@@ -87,7 +86,6 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url dharmx walls nord/a_cartoon_of_a_woman_on_a_balcony.png)"
     "$(github_raw_url dharmx walls outrun/a_street_with_buildings_and_signs.png)"
     "$(github_raw_url dharmx walls painting/a_pool_with_chairs_and_palm_trees.jpg)"
-    "$(github_raw_url dharmx walls pixel/a_video_game_screen_with_trees_and_bushes.jpg)"
     "$(github_raw_url dharmx walls poly/a_green_mountains_with_pink_and_blue_sky.jpg)"
     "$(github_raw_url dharmx walls radium/a_drawing_of_an_astronaut_in_space.png)"
 )
