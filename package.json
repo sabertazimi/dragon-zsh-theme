@@ -1,0 +1,37 @@
+{
+  "name": "@dg-scripts/dotfiles",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.30.0",
+  "description": "Hackable personal dotfiles managed with chezmoi",
+  "author": "sabertazimi <sabertazimi@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sabertazimi/dotfiles"
+  },
+  "bugs": {
+    "url": "https://github.com/sabertazimi/dotfiles/issues"
+  },
+  "keywords": [
+    "dotfiles",
+    "chezmoi",
+    "archlinux",
+    "niri",
+    "gnome",
+    "kde",
+    "matugen",
+    "ghostty",
+    "zsh",
+    "starship",
+    "rime",
+    "wallpaper"
+  ],
+  "scripts": {
+    "changeset": "commit-and-tag-version --dry-run -s",
+    "release": "commit-and-tag-version -s"
+  },
+  "devDependencies": {
+    "commit-and-tag-version": "^12.6.1"
+  }
+}
