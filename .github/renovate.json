@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "assignees": ["sabertazimi"],
+  "dependencyDashboard": false,
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["peerDependencies", "engines"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash"
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "lockFileMaintenance"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash",
+      "groupName": "dependencies (non-major)",
+      "groupSlug": "dependencies"
+    },
+    {
+      "matchPackagePatterns": ["^@dg-scripts/"],
+      "groupName": "dragon scripts"
+    }
+  ],
+  "postUpdateOptions": ["pnpmDedupe"],
+  "rangeStrategy": "bump",
+  "reviewers": ["sabertazimi"],
+  "schedule": ["* * 20 * *"],
+  "timezone": "Asia/Shanghai"
+}
