@@ -59,8 +59,7 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
     ' "$CHEZMOI_LOG" | sort -u
   )
 
-  # Check for unexpected files
-  UNEXPECTED_FILES=""
+  # Verify each applied file is in the expected list
   for actual_file in "${APPLIED_ARRAY[@]}"; do
     [ -z "$actual_file" ] && continue
 
@@ -72,8 +71,27 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
       fi
     done
 
-    if [ "$is_expected" = false ]; then
+    if [ "$is_expected" = true ]; then
+      echo "  ✓ $actual_file"
+    else
+      echo "  ✗ $actual_file (unexpected)"
       UNEXPECTED_FILES="${UNEXPECTED_FILES}  - ${actual_file}"$'\n'
+    fi
+  done
+
+  # Verify each expected file was applied
+  for file in "${FILES[@]}"; do
+    is_found=false
+    for applied_file in "${APPLIED_ARRAY[@]}"; do
+      if [ "$file" = "$applied_file" ]; then
+        is_found=true
+        break
+      fi
+    done
+
+    if [ "$is_found" = false ]; then
+      echo "  ✗ $file (missing)"
+      MISSING_FILES="${MISSING_FILES}  - ${file}"$'\n'
     fi
   done
 
@@ -85,29 +103,13 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
     exit 1
   fi
 
-  # Check for missing files
-  MISSING_FILES=""
-  for file in "${FILES[@]}"; do
-    is_found=false
-    for applied_file in "${APPLIED_ARRAY[@]}"; do
-      if [ "$file" = "$applied_file" ]; then
-        is_found=true
-        break
-      fi
-    done
-
-    if [ "$is_found" = false ]; then
-      MISSING_FILES="${MISSING_FILES}  - ${file}"$'\n'
-    fi
-  done
-
   if [ -n "$MISSING_FILES" ]; then
     echo "Error: Expected files were not applied by chezmoi:"
     echo "$MISSING_FILES"
     exit 1
   fi
 
-  echo "  Applied files match expected list"
+  echo "  Applied files match expected list (${#APPLIED_ARRAY[@]} files)"
 else
   echo "Warning: No chezmoi log provided, skipping applied files comparison"
 fi
