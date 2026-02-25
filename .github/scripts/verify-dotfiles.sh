@@ -43,26 +43,27 @@ done
 if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
   echo "Checking applied files match expected list..."
 
-  # Parse chezmoi verbose output to extract managed files
+  # Parse chezmoi verbose output to extract managed files (not directories)
   # chezmoi uses diff format: "diff --git a/.cargo b/.cargo"
-  # Extract the second path (after "b/") and convert to absolute paths
-  ACTUAL_FILES=$(grep -E '^diff --git a/ b/' "$CHEZMOI_LOG" | \
-    sed -E "s|^diff --git a/.* b/(.*)|$HOME/\1|" | \
-    sort -u)
-
-  # Build expected files list with proper separators for comparison
-  EXPECTED=""
-  for file in "${FILES[@]}"; do
-    EXPECTED="${EXPECTED}${file}"$'\n'
-  done
+  # Followed by: "new file mode 100644" (file) or "40755" (directory)
+  # We only want files (mode 10xxxx), not directories (mode 40xxx or 50xxx)
+  mapfile -t APPLIED_ARRAY < <(
+    awk '
+      /^diff --git a/ { diff_line = $0; next }
+      /^new file mode 1[0-9][0-9][0-9][0-9]/ && diff_line != "" {
+        # Extract path after " b/" from diff_line
+        match(diff_line, / b\/([^ ]+)/, m)
+        print ENVIRON["HOME"] "/" m[1]
+        diff_line = ""
+      }
+    ' "$CHEZMOI_LOG" | sort -u
+  )
 
   # Check for unexpected files
   UNEXPECTED_FILES=""
-  while IFS= read -r actual_file; do
-    # Skip empty lines
+  for actual_file in "${APPLIED_ARRAY[@]}"; do
     [ -z "$actual_file" ] && continue
 
-    # Check if this file is in our expected list
     is_expected=false
     for expected_file in "${FILES[@]}"; do
       if [ "$actual_file" = "$expected_file" ]; then
@@ -74,7 +75,7 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
     if [ "$is_expected" = false ]; then
       UNEXPECTED_FILES="${UNEXPECTED_FILES}  - ${actual_file}"$'\n'
     fi
-  done <<< "$ACTUAL_FILES"
+  done
 
   if [ -n "$UNEXPECTED_FILES" ]; then
     echo "Error: Found unexpected files applied by chezmoi (not in expected list):"
@@ -84,16 +85,18 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
     exit 1
   fi
 
-  # Check for missing files (files in expected list but not applied)
-  APPLIED_FILES=""
-  while IFS= read -r actual_file; do
-    [ -z "$actual_file" ] && continue
-    APPLIED_FILES="${APPLIED_FILES}${actual_file}"$'\n'
-  done <<< "$ACTUAL_FILES"
-
+  # Check for missing files
   MISSING_FILES=""
   for file in "${FILES[@]}"; do
-    if ! echo "$APPLIED_FILES" | grep -qx "$file"; then
+    is_found=false
+    for applied_file in "${APPLIED_ARRAY[@]}"; do
+      if [ "$file" = "$applied_file" ]; then
+        is_found=true
+        break
+      fi
+    done
+
+    if [ "$is_found" = false ]; then
       MISSING_FILES="${MISSING_FILES}  - ${file}"$'\n'
     fi
   done
