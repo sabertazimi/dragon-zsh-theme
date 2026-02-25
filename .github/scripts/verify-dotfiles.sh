@@ -44,9 +44,10 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
   echo "Checking applied files match expected list..."
 
   # Parse chezmoi verbose output to extract managed files
-  # Look for lines like "creating file", "updating file", "file already exists"
-  ACTUAL_FILES=$(grep -E '(creating|updating|removing) (file|symlink|directory)' "$CHEZMOI_LOG" | \
-    sed -E 's/.* (file|symlink|directory) (.*)/\2/' | \
+  # chezmoi uses diff format: "diff --git a/.cargo b/.cargo"
+  # Extract the second path (after "b/") and convert to absolute paths
+  ACTUAL_FILES=$(grep -E '^diff --git a/ b/' "$CHEZMOI_LOG" | \
+    sed -E "s|^diff --git a/.* b/(.*)|$HOME/\1|" | \
     sort -u)
 
   # Build expected files list with proper separators for comparison
