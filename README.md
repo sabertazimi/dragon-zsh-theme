@@ -102,7 +102,7 @@ sed -i 's/^ZSH_THEME=".*"/ZSH_THEME="dragon"/' ~/.zshrc
 source ~/.zshrc
 ```
 
-![Zsh Theme](./screenshots/zsh.png)
+![Zsh Theme](./.github/screenshots/zsh.png)
 
 ### Bash Theme
 
@@ -115,7 +115,7 @@ sed -i 's/^OSH_THEME=".*"/OSH_THEME="dragon"/' ~/.bashrc
 source ~/.bashrc
 ```
 
-![Bash Theme](./screenshots/bash.png)
+![Bash Theme](./.github/screenshots/bash.png)
 
 ## Caveats
 

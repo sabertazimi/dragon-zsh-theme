@@ -7,11 +7,10 @@ Hackable personal dotfiles managed with chezmoi.
 ## Structure
 
 ```plaintext
-themes/           # Shell themes (zsh, bash)
-screenshots/      # Previews
-wallpapers/       # Wallpaper management scripts
 dot_*/            # Managed dotfiles (public)
 private_dot_*/    # Managed dotfiles (private)
+themes/           # Shell themes (zsh, bash)
+wallpapers/       # Wallpaper management scripts
 ```
 
 ## Chezmoi Conventions
