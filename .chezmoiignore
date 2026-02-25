@@ -4,3 +4,7 @@ LICENSE
 README.md
 themes
 wallpapers
+
+node_modules
+package.json
+pnpm-lock.yaml
