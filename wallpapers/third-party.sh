@@ -34,6 +34,12 @@ pixiv_url() {
     echo "$1"
 }
 
+# Wallhaven URL
+# Example: wallhaven_url https://w.wallhaven.cc/full/k8/wallhaven-k81776.jpg
+wallhaven_url() {
+    echo "$1"
+}
+
 # Download with retry mechanism
 # Args: url target_path retries [referer] [display_name]
 download_with_retry() {
@@ -84,32 +90,18 @@ fi
 
 # Default wallpapers if no URLs provided
 declare -a DEFAULT_URLS=(
-    "$(github_raw_url dharmx walls abstract/a_drawing_of_a_sun_and_a_ball.png)#abstract_sun.png"
-    "$(github_raw_url dharmx walls aerial/a_rocky_beach_with_trees_and_water.jpg)#rocky_beach.jpg"
-    "$(github_raw_url dharmx walls anime/a_person_standing_on_a_broken_object_in_a_field_with_a_large_white_moon.png)#anime_moon.png"
-    "$(github_raw_url dharmx walls architecture/a_train_tracks_in_a_tunnel.jpg)#train_station.jpg"
     "$(github_raw_url dharmx walls basalt/a_road_with_a_road_in_the_middle_of_a_river.jpg)#river_road.jpg"
     "$(github_raw_url dharmx walls centered/a_rocket_launching_in_the_sky.png)#launch_rocket.png"
     "$(github_raw_url dharmx walls cherry/a_painting_of_a_tree_branch_with_pink_flowers.png)#cherry_blossom.png"
     "$(github_raw_url dharmx walls chillop/a_cartoon_of_a_space_ship_and_a_man_standing_on_a_rocky_surface.jpg)#space_ship.jpg"
-    "$(github_raw_url dharmx walls decay/a_rusty_van_parked_on_the_side_of_a_road.jpg)#rusty_van.jpg"
     "$(github_raw_url dharmx walls digital/a_house_in_the_snow.png)#digital_house.png"
     "$(github_raw_url dharmx walls evangelion/a_cartoon_of_a_monster.png)#evangelion_monster.png"
-    "$(github_raw_url dharmx walls flowers/a_small_glass_vase_with_a_plant_in_it.jpg)#flower_vase.jpg"
-    "$(github_raw_url dharmx walls fogsmoke/a_bridge_with_clouds_in_the_sky.jpg)#fogsmoke_bridge.jpg"
     "$(github_raw_url dharmx walls gruvbox/a_mountain_range_with_snow.png)#gruvbox_mountain.png"
-    "$(github_raw_url dharmx walls interior/a_room_with_a_wooden_cabinet_and_a_picture_frame.jpg)#interior_room.jpg"
     "$(github_raw_url dharmx walls minimal/a_train_crossing_a_bridge_over_a_bridge_with_mountains_in_the_background.png)#train_bridge.png"
-    "$(github_raw_url dharmx walls monochrome/a_black_and_white_building_with_a_fire_escape.jpg)#monochrome_building.jpg"
-    "$(github_raw_url dharmx walls nature/a_stone_stairs_in_a_forest.jpg)#nature_forest.jpg"
     "$(github_raw_url dharmx walls nord/an_astronaut_playing_a_piano.png)#nord_astronaut.png"
     "$(github_raw_url dharmx walls outrun/a_street_with_buildings_and_signs.png)#outrun_street.png"
     "$(github_raw_url dharmx walls painting/a_white_helmet_with_a_gun_and_fruit_on_a_table.png)#painting_helmet.png"
     "$(github_raw_url dharmx walls poly/a_small_town_with_many_houses.png)#poly_town.png"
-    "$(github_raw_url dharmx walls solarized/a_moon_over_a_spaceship.png)#solarized_moon.png"
-    "$(github_raw_url D3Ext aesthetic-wallpapers images/cute-town.png)#cute_town.png"
-    "$(github_raw_url D3Ext aesthetic-wallpapers images/neocity.png)#neo_city.png"
-    "$(github_raw_url D3Ext aesthetic-wallpapers images/manga.png)#samurai_manga.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2009/08/02/00/05/54/5435590_p0.jpg)#summer_station.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2013/06/25/20/32/44/36633503_p0.jpg)#starlit_sea.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2013/08/17/00/19/26/37855635_p0.jpg)#galaxy_sky.jpg"
@@ -119,11 +111,23 @@ declare -a DEFAULT_URLS=(
     "$(pixiv_url https://i.pximg.net/img-original/img/2016/03/06/02/28/13/55647411_p0.jpg)#fantasy_lake.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2018/01/26/12/52/04/50140585_p0.jpg)#rainy_day.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2018/09/25/00/00/01/70858371_p0.jpg)#sunset_miku.jpg"
-    "$(pixiv_url https://i.pximg.net/img-original/img/2019/05/27/19/00/40/74932889_p0.jpg)#sea_surface.jpg"
+    "$(pixiv_url https://i.pximg.net/img-original/img/2019/05/27/19/00/40/74932889_p0.jpg)#sea_hair.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/08/31/03/09/04/76542723_p0.jpg)#firework_miku.jpg"
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/09/18/06/05/15/76841597_p0.png)#kyogre_pokemon.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/10/14/00/00/02/77277379_p0.png)#groudon_pokemon.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2020/05/07/00/00/13/81363134_p0.png)#volcarona_pokemon.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/72/wallhaven-72myve.png)#cliff_side.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/96/wallhaven-96w8e8.png)#cloudy_sky.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/l3/wallhaven-l315vy.png)#crossing_railway.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/gp/wallhaven-gpzve7.png)#cyberpunk_edgerunners.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/k8/wallhaven-k81776.jpg)#cyberpunk_mountain.jpg"
+    "$(wallhaven_url https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png)#firefly_forest.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/vp/wallhaven-vpq7m8.png)#flower_shop.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/9m/wallhaven-9mjoy1.png)#fuji_samurai.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/ex/wallhaven-ex9gwo.png)#solar_eclipse.png"
+    "$(wallhaven_url https://w.wallhaven.cc/full/yq/wallhaven-yqxkxl.jpg)#sunlight_castle.jpg"
+    "$(wallhaven_url https://w.wallhaven.cc/full/ex/wallhaven-exrqrr.jpg)#sunset_desert.jpg"
+    "$(wallhaven_url https://w.wallhaven.cc/full/5g/wallhaven-5gwvz5.jpg)#wild_planet.jpg"
 )
 
 # Use provided URLs or defaults
