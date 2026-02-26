@@ -101,7 +101,7 @@ declare -a DEFAULT_URLS=(
     "$(github_raw_url dharmx walls interior/a_room_with_a_wooden_cabinet_and_a_picture_frame.jpg)#interior_room.jpg"
     "$(github_raw_url dharmx walls minimal/a_train_crossing_a_bridge_over_a_bridge_with_mountains_in_the_background.png)#train_bridge.png"
     "$(github_raw_url dharmx walls monochrome/a_black_and_white_building_with_a_fire_escape.jpg)#monochrome_building.jpg"
-    "$(github_raw_url dharmx walls nature/a_sand_dunes_in_the_desert.jpg)#nature_desert.jpg"
+    "$(github_raw_url dharmx walls nature/a_stone_stairs_in_a_forest.jpg)#nature_forest.jpg"
     "$(github_raw_url dharmx walls nord/an_astronaut_playing_a_piano.png)#nord_astronaut.png"
     "$(github_raw_url dharmx walls outrun/a_street_with_buildings_and_signs.png)#outrun_street.png"
     "$(github_raw_url dharmx walls painting/a_white_helmet_with_a_gun_and_fruit_on_a_table.png)#painting_helmet.png"
