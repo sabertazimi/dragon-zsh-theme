@@ -116,7 +116,6 @@ declare -a DEFAULT_URLS=(
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/09/18/06/05/15/76841597_p0.png)#kyogre_pokemon.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2019/10/14/00/00/02/77277379_p0.png)#groudon_pokemon.png"
     "$(pixiv_url https://i.pximg.net/img-original/img/2020/05/07/00/00/13/81363134_p0.png)#volcarona_pokemon.png"
-    "$(wallhaven_url https://w.wallhaven.cc/full/72/wallhaven-72myve.png)#cliff_side.png"
     "$(wallhaven_url https://w.wallhaven.cc/full/96/wallhaven-96w8e8.png)#cloudy_sky.png"
     "$(wallhaven_url https://w.wallhaven.cc/full/l3/wallhaven-l315vy.png)#crossing_railway.png"
     "$(wallhaven_url https://w.wallhaven.cc/full/gp/wallhaven-gpzve7.png)#cyberpunk_edgerunners.png"
@@ -127,6 +126,7 @@ declare -a DEFAULT_URLS=(
     "$(wallhaven_url https://w.wallhaven.cc/full/ex/wallhaven-ex9gwo.png)#solar_eclipse.png"
     "$(wallhaven_url https://w.wallhaven.cc/full/yq/wallhaven-yqxkxl.jpg)#sunlight_castle.jpg"
     "$(wallhaven_url https://w.wallhaven.cc/full/ex/wallhaven-exrqrr.jpg)#sunset_desert.jpg"
+    "$(wallhaven_url https://w.wallhaven.cc/full/gp/wallhaven-gp8zoe.jpg)#terraced_farm.jpg"
     "$(wallhaven_url https://w.wallhaven.cc/full/5g/wallhaven-5gwvz5.jpg)#wild_planet.jpg"
 )
 
