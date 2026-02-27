@@ -9,6 +9,7 @@
 [![GNOME](https://img.shields.io/badge/GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)](https://github.com/gnome)
 [![KDE Plasma](https://img.shields.io/badge/KDE_Plasma-1D99F3?style=for-the-badge&logo=kdeplasma&logoColor=white)](https://github.com/kde)
 [![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/rust-lang/rust)
+[![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://github.com/golang/go)
 [![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://github.com/git/git)
 [![Ghostty](https://img.shields.io/badge/Ghostty-3551F3?style=for-the-badge&logo=ghostty&logoColor=white)](https://github.com/ghostty-org/ghostty)
 [![Zsh](https://img.shields.io/badge/Zsh-F15A24?style=for-the-badge&logo=zsh&logoColor=white)](https://github.com/ohmyzsh/ohmyzsh)
@@ -40,6 +41,7 @@ for detailed system configuration.
 ### Development
 
 - **Cargo**: Rust package manager with USTC mirror
+- **Go**: Go environment config file
 - **Ripgrep**: Enhanced search with web file types
 - **Git**: Conventional commit templates
 
@@ -125,7 +127,7 @@ source ~/.bashrc
 Dotfiles not synced:
 
 - `~/.gitconfig`, `~/.claude.json`, `~/.claude/settings.json` — contain keys and dynamically generated content
-- `~/.config/niri/config.kdl`, `~/.config/niri/dms/binds.kdl`, `~/.config/DankMaterialShell/settings.json`, `~/.local/state/DankMaterialShell/session.json` — lengthy configuration files that are rarely modified, edited via `sed -i` instead of syncing to ensure new machines initialize to the corresponding version
+- `~/.config/niri/config.kdl`, `~/.config/DankMaterialShell/settings.json`, `~/.local/state/DankMaterialShell/session.json` — lengthy configuration files that are rarely modified, edited via `sed -i` instead of syncing to ensure new machines initialize to the corresponding version
 
 ## License
 
