@@ -1,21 +1,19 @@
 [metadata]
 name = "aur"
-description = "List and manage installed AUR packages"
+description = "List and install AUR packages"
 requirements = [ "pacman", "paru",]
 
 [source]
-command = "paru -Q"
-output = "{split: :0}"
+command = "paru -Sl"
+output = "{split: :1}"
 
 [preview]
-command = "paru -Qi '{split: :0}' 2>/dev/null"
+command = "paru -Si '{split: :1}' 2>/dev/null"
 
-[actions.remove]
-description = "Remove the selected package"
-command = "paru -Rns '{split: :0}'"
-mode = "execute"
+[keybindings]
+enter = "actions:install"
 
-[actions.files]
-description = "List files owned by the selected package"
-command = "paru -Ql '{split: :0}' | less"
+[actions.install]
+description = "Install the selected package"
+command = "paru -S '{split: :1}'"
 mode = "execute"
