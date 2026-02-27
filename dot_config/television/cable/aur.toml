@@ -1,0 +1,21 @@
+[metadata]
+name = "aur"
+description = "List and manage installed AUR packages"
+requirements = [ "pacman", "paru",]
+
+[source]
+command = "paru -Q"
+output = "{split: :0}"
+
+[preview]
+command = "paru -Qi '{split: :0}' 2>/dev/null"
+
+[actions.remove]
+description = "Remove the selected package"
+command = "paru -Rns '{split: :0}'"
+mode = "execute"
+
+[actions.files]
+description = "List files owned by the selected package"
+command = "paru -Ql '{split: :0}' | less"
+mode = "execute"
