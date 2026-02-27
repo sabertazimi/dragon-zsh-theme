@@ -121,6 +121,7 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 source <(fx --comp zsh)
+source <(procs --gen-completion-out zsh)
 # Use fd for listing path candidates
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
