@@ -119,6 +119,7 @@ export UV_PYTHON_INSTALL_MIRROR="https://gh-proxy.com/github.com/indygreg/python
 export UV_DEFAULT_INDEX="https://mirrors.aliyun.com/pypi/simple"
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
+eval "$(tv init zsh)"
 source <(fzf --zsh)
 source <(fx --comp zsh)
 source <(procs --gen-completion-out zsh)
