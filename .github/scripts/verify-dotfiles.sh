@@ -22,6 +22,7 @@ FILES=(
   "$HOME/.config/go/env"
   "$HOME/.config/matugen/config.toml"
   "$HOME/.config/matugen/templates/starship.toml"
+  "$HOME/.config/mimeapps.list"
   "$HOME/.config/mpv/mpv.conf"
   "$HOME/.config/niri/dms/binds.kdl"
   "$HOME/.config/satty/config.toml"
