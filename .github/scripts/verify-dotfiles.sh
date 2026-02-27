@@ -22,6 +22,7 @@ FILES=(
   "$HOME/.config/matugen/config.toml"
   "$HOME/.config/matugen/templates/starship.toml"
   "$HOME/.config/mpv/mpv.conf"
+  "$HOME/.config/niri/dms/binds.kdl"
   "$HOME/.config/satty/config.toml"
   "$HOME/.gitmsg.md"
   "$HOME/.local/share/fcitx5/rime/default.custom.yaml"
