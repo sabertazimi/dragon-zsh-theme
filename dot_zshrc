@@ -108,17 +108,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pac="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
+alias pacr="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
+alias pacl="paru -Qq | fzf --preview 'paru -Qil {1}' | xargs -ro paru -Qi"
+eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
-eval "$(mise activate zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+export UV_PYTHON_INSTALL_MIRROR="https://gh-proxy.com/github.com/indygreg/python-build-standalone/releases/download"
+export UV_DEFAULT_INDEX="https://mirrors.aliyun.com/pypi/simple"
+eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 source <(fx --comp zsh)
-eval "$(starship init zsh)"
-
-# bind 'set bell-style none'
-
 # Use fd for listing path candidates
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
@@ -128,18 +130,12 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
-
 alias cc="claude"
 alias ccc="claude -c"
 alias ccr="claude -r"
 alias ccm="claude -p commit"
 alias vim="nvim"
 alias dot="chezmoi"
-
-alias pac="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-alias pacr="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
-alias pacl="paru -Qq | fzf --preview 'paru -Qil {1}' | xargs -ro paru -Qi"
-
 alias ff="fastfetch --config examples/7.jsonc"
 alias cd="z"
 alias cat="bat"
@@ -153,9 +149,8 @@ alias top="btm"
 alias ping="gping"
 alias ps="procs"
 alias curl="curlie"
-alias onedrive="rclone mount onedrive:/ ~/onedrive --vfs-cache-mode full --daemon"
-alias ncm="/opt/SPlayer/SPlayer"
-
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --follow --exclude .git"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH="$HOME/.local/bin:$PATH"
+alias onedrive="rclone mount onedrive:/ ~/onedrive --vfs-cache-mode full --daemon"
+alias ncm="/opt/SPlayer/SPlayer"
