@@ -41,26 +41,27 @@ for detailed system configuration.
 
 ### Development
 
-- **Cargo**: Rust package manager with USTC mirror
-- **Go**: Go environment config file
-- **Ripgrep**: Enhanced search with web file types
-- **Git**: Conventional commit templates
+- Cargo: Rust package manager with USTC mirror
+- Go: Go environment config file
+- Ripgrep: Enhanced search with web file types
+- Git: Conventional commit templates
+- Neovim: Hackable LazyVim configuration
 
 ### Terminal & Shell
 
-- **Zsh**: Oh My Zsh with modern CLI tools (mise, zoxide, fzf, starship)
-- **Ghostty**: Modern Wayland terminal with dankcolors theme
-- **Starship**: Dynamic prompt via matugen (Material You theming)
+- Zsh: Oh My Zsh with modern CLI tools (mise, zoxide, fzf, starship)
+- Ghostty: Modern Wayland terminal with dankcolors theme
+- Starship: Dynamic prompt via matugen (Material You theming)
 
 ### Utilities
 
-- **MPV**: Hardware-accelerated video player
-- **Satty**: Wayland screenshot annotation tool
-- **Fcitx5-Rime**: Chinese input with vertical candidates and dark theme
+- MPV: Hardware-accelerated video player
+- Satty: Wayland screenshot annotation tool
+- Fcitx5-Rime: Chinese input with vertical candidates and dark theme
 
 ### Themes
 
-- **Matugen**: Material You color scheme generator from wallpaper
+- Matugen: Material You color scheme generator from wallpaper
 
 ## Wallpapers
 
