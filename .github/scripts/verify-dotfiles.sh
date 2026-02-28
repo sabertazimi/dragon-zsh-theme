@@ -18,6 +18,7 @@ FILES=(
   "$HOME/.cargo/config.toml"
   "$HOME/.config/environment.d/90-dms.conf"
   "$HOME/.config/fcitx5/conf/classicui.conf"
+  "$HOME/.config/fontconfig/fonts.conf"
   "$HOME/.config/ghostty/config"
   "$HOME/.config/go/env"
   "$HOME/.config/matugen/config.toml"
