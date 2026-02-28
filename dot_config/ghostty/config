@@ -1,5 +1,6 @@
 # Font Configuration
 font-size = 12
+font-family = "Maple Mono NF CN"
 
 # Window Configuration
 window-decoration = false
