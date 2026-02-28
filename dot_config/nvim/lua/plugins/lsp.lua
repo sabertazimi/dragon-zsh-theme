@@ -25,6 +25,7 @@ return {
             "scss",
           },
         },
+        harper_ls = {},
       },
     },
   },
