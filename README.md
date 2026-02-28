@@ -15,6 +15,7 @@
 [![Zsh](https://img.shields.io/badge/Zsh-F15A24?style=for-the-badge&logo=zsh&logoColor=white)](https://github.com/ohmyzsh/ohmyzsh)
 [![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)](https://github.com/ohmybash/oh-my-bash)
 [![Starship](https://img.shields.io/badge/Starship-DD0B78?style=for-the-badge&logo=starship&logoColor=white)](https://github.com/starship/starship)
+[![Neovim](https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white)](https://github.com/neovim/neovim)
 [![Rime](https://img.shields.io/badge/Rime-000000?style=for-the-badge&logo=rime&logoColor=white)](https://github.com/rime)
 [![MPV](https://img.shields.io/badge/MPV-691F69?style=for-the-badge&logo=mpv&logoColor=white)](https://github.com/mpv-player/mpv)
 
