@@ -37,6 +37,7 @@ FILES=(
   "$HOME/.config/nvim/lua/plugins/lsp.lua"
   "$HOME/.config/nvim/lua/plugins/markdown.lua"
   "$HOME/.config/nvim/lua/plugins/snacks.lua"
+  "$HOME/.config/nvim/README.md"
   "$HOME/.config/nvim/spell/en.utf-8.add"
   "$HOME/.config/nvim/stylua.toml"
   "$HOME/.config/satty/config.toml"
