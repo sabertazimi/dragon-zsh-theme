@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias yay="paru"
 alias pac="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias pacr="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 alias pacl="paru -Qq | fzf --preview 'paru -Qil {1}' | xargs -ro paru -Qi"
