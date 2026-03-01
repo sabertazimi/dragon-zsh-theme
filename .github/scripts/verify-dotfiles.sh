@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CHEZMOI_LOG="${1:-}"
-
-echo "==> Verifying dotfiles setup..."
-
-echo "Checking chezmoi status..."
-if chezmoi status 2>/dev/null | grep -qv '^$'; then
-  echo "Error: chezmoi status shows pending changes"
-  chezmoi status
-  exit 1
-fi
-echo "  Status clean"
-
-echo "Checking managed files..."
 FILES=(
   "$HOME/.cargo/config.toml"
+  "$HOME/.config/DankMaterialShell/settings.json"
   "$HOME/.config/environment.d/90-dms.conf"
   "$HOME/.config/fcitx5/conf/classicui.conf"
   "$HOME/.config/fontconfig/fonts.conf"
@@ -25,6 +13,7 @@ FILES=(
   "$HOME/.config/matugen/templates/starship.toml"
   "$HOME/.config/mimeapps.list"
   "$HOME/.config/mpv/mpv.conf"
+  "$HOME/.config/niri/config.kdl"
   "$HOME/.config/niri/dms/binds.kdl"
   "$HOME/.config/nvim/.neoconf.json"
   "$HOME/.config/nvim/init.lua"
@@ -45,10 +34,24 @@ FILES=(
   "$HOME/.config/television/cable/aur.toml"
   "$HOME/.gitmsg.md"
   "$HOME/.local/share/fcitx5/rime/default.custom.yaml"
+  "$HOME/.local/state/DankMaterialShell/session.json"
   "$HOME/.ripgreprc"
   "$HOME/.zshrc"
 )
 
+CHEZMOI_LOG="${1:-}"
+
+echo "==> Verifying dotfiles setup..."
+
+echo "Checking chezmoi status..."
+if chezmoi status 2>/dev/null | grep -qv '^$'; then
+  echo "Error: chezmoi status shows pending changes"
+  chezmoi status
+  exit 1
+fi
+echo "  Status clean"
+
+echo "Checking managed files..."
 for file in "${FILES[@]}"; do
   if [ ! -e "$file" ]; then
     echo "Error: $file not found"
@@ -59,19 +62,18 @@ done
 
 if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
   echo "Checking applied files match expected list..."
-
   UNEXPECTED_FILES=""
   MISSING_FILES=""
 
   mapfile -t APPLIED_ARRAY < <(
     awk '
-      /^diff --git a/ { diff_line = $0; next }
-      /^new file mode 1[0-9][0-9][0-9][0-9]/ && diff_line != "" {
-        match(diff_line, / b\/([^ ]+)/, m)
+      /^diff --git a/ {
+        match($0, / b\/([^ ]+)/, m)
         print ENVIRON["HOME"] "/" m[1]
-        diff_line = ""
       }
-    ' "$CHEZMOI_LOG" | sort -u
+    ' "$CHEZMOI_LOG" | while IFS= read -r path; do
+      [ -f "$path" ] && printf '%s\n' "$path"
+    done | sort -u
   )
 
   for actual_file in "${APPLIED_ARRAY[@]}"; do
