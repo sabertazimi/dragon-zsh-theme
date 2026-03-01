@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 USER=$(whoami)
-jq --arg user "$USER" '
+jq -j --arg user "$USER" '
   .wallpaperCyclingEnabled = true |
   .wallpaperCyclingMode = "interval" |
   .wallpaperCyclingInterval = 1800 |
