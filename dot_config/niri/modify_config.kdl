@@ -13,7 +13,7 @@ line_exists() {
 }
 
 # 1. Replace scope="output" with scope="all"
-content=$(echo "$content" | sed 's/scope="output"/scope="all"/g')
+content="${content//scope=\"output\"/scope=\"all\"}"
 
 # 2. Add QT environment variables
 if ! line_exists 'QT_QPA_PLATFORMTHEME "qt6ct"'; then
