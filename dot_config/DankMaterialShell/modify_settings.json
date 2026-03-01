@@ -16,5 +16,15 @@ jq -j '
   .dockGroupByApp = true |
   .dockTransparency = 0.65 |
   .launcherLogoMode = "os" |
-  .launcherLogoColorOverride = "primary"
+  .launcherLogoColorOverride = "primary" |
+  .notificationRules = [
+  {
+    "enabled": true,
+    "field": "appName",
+    "pattern": "Firefox",
+    "matchType": "exact",
+    "action": "mute",
+    "urgency": "default"
+  }
+]
 '
