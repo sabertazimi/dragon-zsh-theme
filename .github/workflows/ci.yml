@@ -22,6 +22,14 @@ jobs:
       - name: Install chezmoi
         run: |
           pacman -Syu --noconfirm --needed chezmoi jq
+      - name: Setup config fixtures
+        run: |
+          mkdir -p ~/.config/niri/dms
+          mkdir -p ~/.config/DankMaterialShell
+          mkdir -p ~/.local/state/DankMaterialShell
+          cp .github/fixtures/niri-config.kdl ~/.config/niri/config.kdl
+          cp .github/fixtures/dms-settings.json ~/.config/DankMaterialShell/settings.json
+          cp .github/fixtures/dms-session.json ~/.local/state/DankMaterialShell/session.json
       - name: Init and apply dotfiles
         run: |
           chezmoi init --apply -v --source=$PWD --force 2>&1 | tee /tmp/chezmoi-apply.log
