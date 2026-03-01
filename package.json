@@ -28,6 +28,7 @@
     "wallpaper"
   ],
   "scripts": {
+    "lint": "shellcheck **/*.sh .github/**/*.sh",
     "changeset": "commit-and-tag-version --dry-run -s",
     "release": "commit-and-tag-version -s"
   },
