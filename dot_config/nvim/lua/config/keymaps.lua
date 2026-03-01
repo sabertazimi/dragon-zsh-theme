@@ -25,4 +25,12 @@ wk.add({
     desc = "Commands",
     icon = "⌘ ",
   },
+  {
+    "<C-`>",
+    function()
+      Snacks.terminal(nil, { cwd = LazyVim.root() })
+    end,
+    desc = "Terminal (Root Dir)",
+    icon = " ",
+  },
 })
