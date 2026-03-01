@@ -9,3 +9,5 @@ wallpapers
 node_modules
 package.json
 pnpm-lock.yaml
+
+.harper-dictionary.txt
