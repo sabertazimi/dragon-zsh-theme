@@ -69,7 +69,9 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
         match($0, / b\/([^ ]+)/, m)
         print ENVIRON["HOME"] "/" m[1]
       }
-    ' "$CHEZMOI_LOG" | sort -u
+    ' "$CHEZMOI_LOG" | while IFS= read -r path; do
+      [ -f "$path" ] && printf '%s\n' "$path"
+    done | sort -u
   )
 
   for actual_file in "${APPLIED_ARRAY[@]}"; do
