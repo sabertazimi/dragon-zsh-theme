@@ -65,11 +65,9 @@ if [ -n "$CHEZMOI_LOG" ] && [ -f "$CHEZMOI_LOG" ]; then
 
   mapfile -t APPLIED_ARRAY < <(
     awk '
-      /^diff --git a/ { diff_line = $0; next }
-      /^new file mode 1[0-9][0-9][0-9][0-9]/ && diff_line != "" {
-        match(diff_line, / b\/([^ ]+)/, m)
+      /^diff --git a/ {
+        match($0, / b\/([^ ]+)/, m)
         print ENVIRON["HOME"] "/" m[1]
-        diff_line = ""
       }
     ' "$CHEZMOI_LOG" | sort -u
   )
