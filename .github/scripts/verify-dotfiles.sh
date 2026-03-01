@@ -6,7 +6,7 @@ CHEZMOI_LOG="${1:-}"
 echo "==> Verifying dotfiles setup..."
 
 echo "Checking chezmoi status..."
-if [ -n "$(chezmoi status 2>/dev/null | grep -v '^$')" ]; then
+if chezmoi status 2>/dev/null | grep -qv '^$'; then
   echo "Error: chezmoi status shows pending changes"
   chezmoi status
   exit 1

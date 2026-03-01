@@ -28,6 +28,7 @@
     "wallpaper"
   ],
   "scripts": {
+    "lint": "git ls-files '*.sh' | xargs shellcheck",
     "changeset": "commit-and-tag-version --dry-run -s",
     "release": "commit-and-tag-version -s"
   },
