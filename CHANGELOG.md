@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/sabertazimi/dotfiles/compare/v1.1.0...v1.2.0) (2026-03-01)
+
+
+### Features
+
+* **github:** add alias for GitHub CLI ([5965539](https://github.com/sabertazimi/dotfiles/commit/5965539fa452dc8038f025323960d3b8695b9573))
+* **linux-font:** set up Arch Linux font config ([3acf84d](https://github.com/sabertazimi/dotfiles/commit/3acf84ddb3d10d06250a48e628bce13131bf4ad2))
+* **linux-fonts:** set up `fontconfig` ([dc5d55d](https://github.com/sabertazimi/dotfiles/commit/dc5d55d8db62cbc1779b6033259da9b1d1bc8609))
+* **linux-fonts:** set up Adobe source han fonts ([60a1046](https://github.com/sabertazimi/dotfiles/commit/60a1046a7da38a4495b5b5be0c6646e3207ddc95))
+* **linux-fonts:** upgrade to Maple Mono nerd font ([d417a25](https://github.com/sabertazimi/dotfiles/commit/d417a25f5d38f28d627809edc01f1403234aaf27))
+* **niri-DMS:** add niri DMS config files ([#7](https://github.com/sabertazimi/dotfiles/issues/7)) ([1471140](https://github.com/sabertazimi/dotfiles/commit/1471140c191ea5694feb98bda5ba5a49214375f1))
+* **niri:** add niri config file ([#8](https://github.com/sabertazimi/dotfiles/issues/8)) ([a4f708d](https://github.com/sabertazimi/dotfiles/commit/a4f708da2fd370bc6545b2add0644b257e838b1f))
+* **nvim-aerial:** set up Neovim aerial plugin ([8362637](https://github.com/sabertazimi/dotfiles/commit/8362637b30e71d453fb879744494d94f459d7137))
+* **nvim-keymaps:** bind vscode-style terminal keymap ([d4c5155](https://github.com/sabertazimi/dotfiles/commit/d4c5155c918bb452092b74933a2d422ba051d293))
+* **nvim-spell:** change to Harper grammar checker ([a44e842](https://github.com/sabertazimi/dotfiles/commit/a44e84274f0b91ad5121f89d834b166e68f45dee))
+* **nvim-theme:** change to `base16 catppuccin mocha` theme ([fbfdb68](https://github.com/sabertazimi/dotfiles/commit/fbfdb68e6a0ee028675e44b0f439a490ef099f5f))
+* **nvim-wakatime:** add WakaTime plugin for Neovim ([3815769](https://github.com/sabertazimi/dotfiles/commit/3815769423ee88e2f942f3d58413cebe5e17ab05))
+* **nvim:** add LazyVim configuration with language extras ([#6](https://github.com/sabertazimi/dotfiles/issues/6)) ([598b386](https://github.com/sabertazimi/dotfiles/commit/598b38699295d1ba461cfaf52dfa7c51a33f96da))
+* **nvim:** add shellcheck for neovim ([03becf7](https://github.com/sabertazimi/dotfiles/commit/03becf7a6420fbdd2aea57d193fa231be7e84038))
+* **television-channel:** add AUR channel for television ([aff94d4](https://github.com/sabertazimi/dotfiles/commit/aff94d4ea7288f1d1f72672561032183eb53f6ce))
+* **television:** add shell integration ([e18144b](https://github.com/sabertazimi/dotfiles/commit/e18144b0ad6ffaff512ad7b555041ca72500debf))
+* **television:** channel to install AUR packages ([ca26840](https://github.com/sabertazimi/dotfiles/commit/ca26840c5a4f905b1c26dd0aedba1684dd7b21f2))
+* **tldr:** replace man with tldr ([121a8cd](https://github.com/sabertazimi/dotfiles/commit/121a8cd52073d09f74d339d628e687b69984edc1))
+* **zsh-fzf:** set up fzf tab completion plugin ([dc70db7](https://github.com/sabertazimi/dotfiles/commit/dc70db78346b3878deeefab573e459f97da07c12))
+
+
+### Bug Fixes
+
+* **ghostty:** leave `ctrl+t` to fzf/shell completion ([36b9d29](https://github.com/sabertazimi/dotfiles/commit/36b9d299b095500b6606b7db863bfd098072ceb7))
+* **linux-aur:** set up `AUR` helper alias ([d451d3c](https://github.com/sabertazimi/dotfiles/commit/d451d3c90afc467ec46d9aefc4589bdd540db7ea))
+* **linux-font:** standardize `fontconfig` XML formatting and attribute ordering ([7820286](https://github.com/sabertazimi/dotfiles/commit/7820286bcf4b51eb8af15e49ecc8b731e8d1164a))
+* **niri-DMS:** disable tail line appending ([ae5d45e](https://github.com/sabertazimi/dotfiles/commit/ae5d45e2062c77f1d27d6568fc32d7d41a4b7ebe))
+* **nvim-keymaps:** add rebuild dictionary keymaps ([d253692](https://github.com/sabertazimi/dotfiles/commit/d25369254d014ee3a59413e815fb7a064b532d8d))
+* **nvim-keymaps:** bind Snacks commands picker to `<C-P>` ([8b5d5f3](https://github.com/sabertazimi/dotfiles/commit/8b5d5f3cf8aa78bc2090bff7a7bc28f3d441d734))
+* **nvim-lsp:** disable JSON language server format ([857aba2](https://github.com/sabertazimi/dotfiles/commit/857aba2cc4cbcfff87eacd863230faac34ac858a))
+* **nvim:** enable JSON language server formatting ([aa39cbb](https://github.com/sabertazimi/dotfiles/commit/aa39cbb4773f65693c1a0be6a2b68d447fcc1b8a))
+* **nvim:** move to autocmd file ([a8d8f12](https://github.com/sabertazimi/dotfiles/commit/a8d8f1244086cde9305b3a3bd712ba84faeb0677))
+* **python-mirrors:** add suffix '/' to mirrors URL ([c136426](https://github.com/sabertazimi/dotfiles/commit/c1364260957301583451eb750d24b23863a1b887))
+* **wallpapers:** change outrun with radium style ([e9cbcfa](https://github.com/sabertazimi/dotfiles/commit/e9cbcfa9a2184318fe716c5f455840c779317c3f))
+* **zsh-procs:** add procs completion ([be04c02](https://github.com/sabertazimi/dotfiles/commit/be04c029bb2eb0ecbc3e8b082875038190baed89))
+
 ## [1.1.0](https://github.com/sabertazimi/dotfiles/compare/v1.0.0...v1.1.0) (2026-02-27)
 
 
