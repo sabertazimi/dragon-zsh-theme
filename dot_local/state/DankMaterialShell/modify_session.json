@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 USER=$(whoami)
 jq --arg user "$USER" '
