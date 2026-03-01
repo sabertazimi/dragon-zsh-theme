@@ -26,13 +26,6 @@ return {
           },
         },
         harper_ls = {},
-        jsonls = {
-          settings = {
-            format = {
-              enable = false,
-            },
-          },
-        },
       },
     },
   },
