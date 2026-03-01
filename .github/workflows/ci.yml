@@ -17,8 +17,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Install shellcheck
         run: |
-          apt update -qq
-          apt install -y shellcheck
+          sudo apt-get update -qq
+          sudo apt-get install -y shellcheck
       - name: Run shellcheck
         run: |
           shellcheck **/*.sh .github/**/*.sh
