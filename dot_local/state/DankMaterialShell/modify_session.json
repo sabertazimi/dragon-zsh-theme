@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+USER=$(whoami)
+jq --arg user "$USER" '
+  .wallpaperCyclingEnabled = true |
+  .wallpaperCyclingMode = "interval" |
+  .wallpaperCyclingInterval = 1800 |
+  .wallpaperCyclingTime = "18:00" |
+  .wallpaperTransition = "disc" |
+  .pinnedApps = [
+  "firefox",
+  "com.mitchellh.ghostty",
+  "code",
+  "SPlayer",
+  "com.qq.weixin",
+  "qq",
+  "wps-office-prometheus",
+  "steam",
+  "animeko",
+  "virt-manager",
+  "io.missioncenter.MissionCenter",
+  "btrfs-assistant"
+] |
+  .hiddenApps = [
+  "mihomo-party",
+  "wps-office-wps",
+  "wps-office-et",
+  "wps-office-wpp",
+  "wps-office-pdf"
+]
+'
