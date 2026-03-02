@@ -96,14 +96,14 @@ Collection of wallpaper management scripts for Arch Linux:
 # Make scripts executable
 chmod +x ~/dotfiles/wallpapers/*.sh
 
-# Run interactive menu
+# Install all wallpapers
 ~/dotfiles/wallpapers/install.sh
 
 # Or run specific script
-~/dotfiles/wallpapers/install.sh all        # All wallpapers
-~/dotfiles/wallpapers/install.sh archlinux  # Arch Linux wallpapers
-~/dotfiles/wallpapers/install.sh gnome      # GNOME wallpapers
-~/dotfiles/wallpapers/install.sh kde        # KDE Plasma wallpapers
+~/dotfiles/wallpapers/install.sh archlinux   # Arch Linux wallpapers
+~/dotfiles/wallpapers/install.sh gnome       # GNOME wallpapers
+~/dotfiles/wallpapers/install.sh kde         # KDE Plasma wallpapers
+~/dotfiles/wallpapers/install.sh third-party # Third-party wallpapers
 ```
 
 Wallpapers are copied to `~/.local/share/wallpapers/`.
