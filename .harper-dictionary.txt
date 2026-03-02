@@ -1,2 +1,10 @@
 LazyVim
+MPV
 autocmds
+fcitx
+ghostty
+matugen
+niri
+satty
+starship
+zsh

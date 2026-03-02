@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles
 
 [![Author](https://img.shields.io/badge/author-sabertaz-lightgrey?style=for-the-badge)](https://github.com/sabertazimi)
 [![LICENSE](https://img.shields.io/github/license/sabertazimi/dotfiles?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dotfiles/main/LICENSE)
@@ -22,7 +22,7 @@
 [![MPV](https://img.shields.io/badge/MPV-691F69?style=for-the-badge&logo=mpv&logoColor=white)](https://github.com/mpv-player/mpv)
 [![WakaTime](https://img.shields.io/badge/WakaTime-000000?style=for-the-badge&logo=wakatime&logoColor=white)](https://github.com/wakatime)
 
-Hackable personal dotfiles managed with [chezmoi](https://github.com/twpayne/chezmoi).
+Hackable personal dotfiles managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
 
 ## Installation
 
@@ -44,26 +44,42 @@ for detailed system configuration.
 
 ### Development
 
-- Cargo: Rust package manager with USTC mirror
+- Cargo: Rust package manager with `USTC` mirror
 - Go: Go environment config file
-- Ripgrep: Enhanced search with web file types
+- Grep: Enhanced `ripgrep` search (web file types, hidden files, smart-case)
+- Television: Fancy `fzf` recipes
 - Git: Conventional commit templates
 - Neovim: Hackable LazyVim configuration
+  - Language Extras: TypeScript, Python, Rust, Go, Markdown, JSON, TOML, YAML
+  - LSP: ESLint, Harper (grammar checker)
+  - Mason: `shellcheck`
+  - Plugins: Aerial (symbols), Blink (completion), Snacks (picker/terminal)
+  - Config: Custom keymaps, Dank colors theme, Markdown rendering
 
 ### Terminal & Shell
 
-- Zsh: Oh My Zsh with modern CLI tools (mise, zoxide, fzf, starship)
-- Ghostty: Modern Wayland terminal with dankcolors theme
+- Zsh: Oh My Zsh with modern CLI tools (`mise`, `zoxide`, `fzf` etc.)
+- Ghostty: Modern Wayland terminal with Dank colors theme
 - Starship: Dynamic prompt via matugen (Material You theming)
 
 ### Utilities
 
 - MPV: Hardware-accelerated video player
 - Satty: Wayland screenshot annotation tool
-- Fcitx5-Rime: Chinese input with vertical candidates and dark theme
+- Fcitx-Rime: Chinese input with vertical candidates and dark theme
+
+### Window Manager
+
+- Niri: Scrollable-tiling Wayland compositor with `DankMaterialShell` integration
+
+### System
+
+- `fontconfig`: Font rendering configuration
+- MIME Apps: Default application associations
 
 ### Themes
 
+- `DankMaterialShell`: Material You shell
 - Matugen: Material You color scheme generator from wallpaper
 
 ## Wallpapers
@@ -94,7 +110,7 @@ Wallpapers are copied to `~/.local/share/wallpapers/`.
 
 Requirements:
 
-- ImageMagick (for GNOME `.jxl` conversion)
+- `ImageMagick` (for GNOME `.jxl` conversion)
 - `archlinux-wallpaper`
 - `gnome-backgrounds`
 - `plasma-workspace-wallpapers`
@@ -131,12 +147,12 @@ source ~/.bashrc
 
 Dotfiles not synced:
 
-- `~/.gitconfig`, `~/.claude.json`, `~/.claude/settings.json` — contain keys and dynamically generated content
-- `~/.config/niri/config.kdl`, `~/.config/DankMaterialShell/settings.json`, `~/.local/state/DankMaterialShell/session.json` — lengthy configuration files that are rarely modified, edited via `sed -i` instead of syncing to ensure new machines initialize to the corresponding version
+`~/.gitconfig`, `~/.claude.json`, `~/.claude/settings.json`
+contain keys and dynamically generated content.
 
 ## License
 
-MIT License Copyright (c) [Sabertaz](https://github.com/sabertazimi)
+MIT License Copyright (c) [`Sabertaz`](https://github.com/sabertazimi)
 
 ## Contact
 
