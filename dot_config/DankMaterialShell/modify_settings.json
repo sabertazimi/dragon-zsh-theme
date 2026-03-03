@@ -12,12 +12,6 @@ jq -j '
   .weatherEnabled = true |
   .barConfigs |= map(if .id == "default" or .id == null then .transparency = 0 | .widgetTransparency = 0.65 else . end) |
   .notificationPopupPosition = 3 |
-  .showDock = true |
-  .dockSmartAutoHide = true |
-  .dockGroupByApp = true |
-  .dockTransparency = 0.65 |
-  .launcherLogoMode = "os" |
-  .launcherLogoColorOverride = "primary" |
   .notificationRules = [
   {
     "enabled": true,
@@ -27,5 +21,11 @@ jq -j '
     "action": "mute",
     "urgency": "default"
   }
-]
+] |
+  .showDock = true |
+  .dockSmartAutoHide = true |
+  .dockGroupByApp = true |
+  .dockTransparency = 0.65 |
+  .launcherLogoMode = "os" |
+  .launcherLogoColorOverride = "primary"
 '
