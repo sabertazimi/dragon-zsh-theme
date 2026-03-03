@@ -5,6 +5,7 @@ FILES=(
   "$HOME/.cargo/config.toml"
   "$HOME/.config/DankMaterialShell/settings.json"
   "$HOME/.config/environment.d/90-dms.conf"
+  "$HOME/.config/fcitx5/config"
   "$HOME/.config/fcitx5/conf/classicui.conf"
   "$HOME/.config/fontconfig/fonts.conf"
   "$HOME/.config/ghostty/config"
