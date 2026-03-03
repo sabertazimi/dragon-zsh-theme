@@ -15,11 +15,7 @@ jq -j --arg user "$USER" '
   "com.qq.weixin",
   "qq",
   "wps-office-prometheus",
-  "steam",
-  "animeko",
-  "virt-manager",
-  "io.missioncenter.MissionCenter",
-  "btrfs-assistant"
+  "steam"
 ] |
   .hiddenApps = [
   "Clash Verge",
