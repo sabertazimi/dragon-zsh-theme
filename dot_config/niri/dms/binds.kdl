@@ -4,7 +4,7 @@ binds {
     Mod+B { spawn "firefox"; }
     Mod+E { spawn "nautilus"; }
     Mod+M { spawn "/opt/SPlayer/SPlayer" ; }
-    Mod+Z { spawn "code"; }
+    Mod+S { spawn "code"; }
 
     // === System & Overview ===
     Mod+Tab repeat=false { toggle-overview; }
@@ -66,12 +66,12 @@ binds {
 		XF86AudioNext allow-when-locked=true {
 		    spawn "dms" "ipc" "call" "mpris" "next";
 		}
-        Ctrl+XF86AudioRaiseVolume allow-when-locked=true {
-            spawn "dms" "ipc" "call" "mpris" "increment" "3";
-        }
-        Ctrl+XF86AudioLowerVolume allow-when-locked=true {
-            spawn "dms" "ipc" "call" "mpris" "decrement" "3";
-        }
+    Ctrl+XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "mpris" "increment" "3";
+    }
+    Ctrl+XF86AudioLowerVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "mpris" "decrement" "3";
+    }
 
     // === Brightness Controls ===
     XF86MonBrightnessUp allow-when-locked=true {
