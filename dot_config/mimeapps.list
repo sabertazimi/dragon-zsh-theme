@@ -1,6 +1,6 @@
 [Default Applications]
-x-scheme-handler/clash=clash-verge.desktop
-x-scheme-handler/clash-verge=clash-verge.desktop
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
