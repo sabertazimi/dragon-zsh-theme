@@ -22,7 +22,8 @@
 [![MPV](https://img.shields.io/badge/MPV-691F69?style=for-the-badge&logo=mpv&logoColor=white)](https://github.com/mpv-player/mpv)
 [![WakaTime](https://img.shields.io/badge/WakaTime-000000?style=for-the-badge&logo=wakatime&logoColor=white)](https://github.com/wakatime)
 
-Hackable personal dotfiles managed with [`chezmoi`](https://github.com/twpayne/chezmoi).
+Hackable personal dotfiles managed with [`chezmoi`](https://github.com/twpayne/chezmoi)
+(`/ʃeɪ mwa/`).
 
 ## Installation
 
