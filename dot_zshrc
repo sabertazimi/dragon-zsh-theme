@@ -173,7 +173,9 @@ alias ccc="claude -c"
 alias ccr="claude -r"
 alias ccm="claude -p commit"
 alias cx="codex"
+alias cxr="codex resume"
 alias oc="opencode"
+alias occ="opencode -c"
 
 # GitHub workflow
 alias gpn="gh pr new"
