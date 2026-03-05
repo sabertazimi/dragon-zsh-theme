@@ -121,7 +121,6 @@ export UV_DEFAULT_INDEX="https://mirrors.aliyun.com/pypi/simple/"
 
 # Tool initialization
 eval "$(starship init zsh)"
-source /usr/share/nvm/init-nvm.sh
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 eval "$(mise activate zsh)"
