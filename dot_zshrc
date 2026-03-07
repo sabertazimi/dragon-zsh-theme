@@ -184,3 +184,5 @@ alias gpm="gh pr merge --squash --delete-branch"
 # Misc
 alias onedrive="rclone mount onedrive:/ ~/onedrive --vfs-cache-mode full --daemon"
 alias ncm="/opt/SPlayer/SPlayer"
+
+source ~/.zshrc.local
