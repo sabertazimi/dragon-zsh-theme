@@ -16,6 +16,7 @@ FILES=(
   "$HOME/.config/mpv/mpv.conf"
   "$HOME/.config/niri/config.kdl"
   "$HOME/.config/niri/dms/binds.kdl"
+  "$HOME/.config/niri/dms/windowrules.kdl"
   "$HOME/.config/nvim/.neoconf.json"
   "$HOME/.config/nvim/init.lua"
   "$HOME/.config/nvim/lua/config/autocmds.lua"

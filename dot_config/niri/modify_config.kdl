@@ -92,5 +92,13 @@ if ! line_exists 'spawn-at-startup "rclone"'; then
   fi
 fi
 
+# 6. Add optional `windowrules` include
+if ! line_exists 'include "dms/windowrules.kdl"'; then
+  windowrules_file="${XDG_CONFIG_HOME:-$HOME/.config}/niri/dms/windowrules.kdl"
+  if [ -f "$windowrules_file" ]; then
+    content="${content}"$'\n'"include \"dms/windowrules.kdl\""
+  fi
+fi
+
 # Output modified content
 echo "$content"
