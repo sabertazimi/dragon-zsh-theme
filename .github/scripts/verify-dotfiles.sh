@@ -26,6 +26,7 @@ FILES=(
   "$HOME/.config/nvim/lua/plugins/colorscheme.lua"
   "$HOME/.config/nvim/lua/plugins/conform.lua"
   "$HOME/.config/nvim/lua/plugins/lsp.lua"
+  "$HOME/.config/nvim/lua/plugins/lualine.lua"
   "$HOME/.config/nvim/lua/plugins/markdown.lua"
   "$HOME/.config/nvim/lua/plugins/mason.lua"
   "$HOME/.config/nvim/lua/plugins/pairs.lua"
