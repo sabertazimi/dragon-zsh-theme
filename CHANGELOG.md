@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/sabertazimi/dotfiles/compare/v1.2.0...v1.3.0) (2026-03-07)
+
+
+### Features
+
+* **agent:** add alias to agents session ([a152ff6](https://github.com/sabertazimi/dotfiles/commit/a152ff62368e1f20acc78c1b950c66b46928b7d2))
+* **agent:** set up alias to coding agents ([fa4d737](https://github.com/sabertazimi/dotfiles/commit/fa4d73717015f075b398f5d43c094f6fe9c61e4f))
+* **dankmaterialshell:** add Firefox notification mute rule ([882a3ce](https://github.com/sabertazimi/dotfiles/commit/882a3ce2454617c4dc17f828e80c772dd0bb4d83))
+* **fcitx:** set up fcitx key bindings ([efd80fe](https://github.com/sabertazimi/dotfiles/commit/efd80fea414a045210ea605cdc3dc32f72c978cb))
+* **icon-theme:** change to `Papirus` icon theme ([4637913](https://github.com/sabertazimi/dotfiles/commit/46379134b180611d9dfce52cc5d589240903bb03))
+* **niri-binds:** set up niri key binds ([e15976d](https://github.com/sabertazimi/dotfiles/commit/e15976d7e859c2d0b1a4c47d7f8a58858553330f))
+* **nvim-pairs:** disable auto-pairs in command mode ([2a9c2f3](https://github.com/sabertazimi/dotfiles/commit/2a9c2f3e246007506e96f65fa977bd822c3cdb6e))
+* **nvim:** add `toml` and `yaml` language extras plugins ([ede5629](https://github.com/sabertazimi/dotfiles/commit/ede56296c41fb8b2fbdda9e89b61b2fba7fb92b7))
+* **zsh-nvm:** remove `Node.js` version manager `nvm` ([2f4d852](https://github.com/sabertazimi/dotfiles/commit/2f4d852a338254d28f37e1913b7b90a7a83ddacd))
+* **zsh:** add local zsh configuration file ([72d8407](https://github.com/sabertazimi/dotfiles/commit/72d8407e784389913e28596cec67b8c17ca7a53e))
+* **zsh:** command line DNS client `doggo` (dig) ([4726fb7](https://github.com/sabertazimi/dotfiles/commit/4726fb7385c899a516bf88364c7c4c3b57ea091e))
+* **zsh:** reorganize shell config sections ([4ef4fa1](https://github.com/sabertazimi/dotfiles/commit/4ef4fa1b0c7e8afbb8fda15ed33724c7e0aea7fe))
+* **zsh:** set up alias to `xdg-open` ([ccc50c2](https://github.com/sabertazimi/dotfiles/commit/ccc50c2c04bcfae0ce10be5b449ff96cdb50ab12))
+
+
+### Bug Fixes
+
+* **dms-dock:** remove apps from dock ([6b758a1](https://github.com/sabertazimi/dotfiles/commit/6b758a176d0f4dae67375a3ee8f34666947e7826))
+* **linux-toolchain:** `zoxide` change directory command and tool headings ([09c00eb](https://github.com/sabertazimi/dotfiles/commit/09c00ebe9f05e65e2ea330bd3fe52641dc51740c))
+* **linux-zsh:** change `zsh-autosuggestions` accept key ([3714456](https://github.com/sabertazimi/dotfiles/commit/37144569098543998a678e880b0108eb19fa9225))
+* **mime:** format config file ([b884ac8](https://github.com/sabertazimi/dotfiles/commit/b884ac84da0a433d51492f679d24cb0df503fdf0))
+* **mime:** format mime config file ([e82a0d2](https://github.com/sabertazimi/dotfiles/commit/e82a0d2bb5070e6959edcf52bc12e4ad17c566a9))
+* **niri-binds:** change spawn key bindings ([780e7dc](https://github.com/sabertazimi/dotfiles/commit/780e7dc76403c37faaa4c27358139fe031ca5367))
+* **niri-dms:** format config file ([d4e8e8f](https://github.com/sabertazimi/dotfiles/commit/d4e8e8fe3b49ac22ce74fbd9d23234be25c33ebb))
+* **niri-dms:** reset notification popup position ([bff528e](https://github.com/sabertazimi/dotfiles/commit/bff528ef6d2089d9e6a7b0e7172cfcf7ebee66b2))
+* **niri:** change browser key bind ([4380d92](https://github.com/sabertazimi/dotfiles/commit/4380d92414af6e40c6083a9d57705379bc416250))
+* **nvim:** add `vi` alias ([5948695](https://github.com/sabertazimi/dotfiles/commit/5948695cf577528b8cc6265d329882d30e42cbeb))
+* **nvim:** remove redundant example plugin ([30f6905](https://github.com/sabertazimi/dotfiles/commit/30f690551a57f7eb840c076e9ca33718968ba5e8))
+* **nvim:** set up Neovim as default editor ([5df0190](https://github.com/sabertazimi/dotfiles/commit/5df0190a602889b9bd98315363d8a5f39227f8ba))
+* **wallpapers:** replace sea hair with submerged city ([9e8b7db](https://github.com/sabertazimi/dotfiles/commit/9e8b7db4e3aa0fb0eacf41a5cde9cd2a7eb2c397))
+* **wallpapers:** replace watermark wallpaper ([956e208](https://github.com/sabertazimi/dotfiles/commit/956e208f6851f9ebdf2db56aa4b081e6be803d90))
+
 ## [1.2.0](https://github.com/sabertazimi/dotfiles/compare/v1.1.0...v1.2.0) (2026-03-01)
 
 
