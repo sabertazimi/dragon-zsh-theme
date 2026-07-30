@@ -2,8 +2,6 @@
 set -euo pipefail
 
 FILES=(
-  "$HOME/.cargo/config.toml"
-  "$HOME/.claude/plugins/claude-hud/config.json"
   "$HOME/.config/autostart/steam.desktop"
   "$HOME/.config/cava/config"
   "$HOME/.config/chezmoi/chezmoi.toml"
@@ -70,7 +68,8 @@ FILES=(
   "$HOME/.config/television/config.toml"
   "$HOME/.config/television/cable/aur.toml"
   "$HOME/.config/tmux/tmux.conf"
-  "$HOME/.gitmsg.md"
+  "$HOME/.config/yasb/config.yaml"
+  "$HOME/.config/zellij/config.kdl"
   "$HOME/.local/bin/fzf-preview.sh"
   "$HOME/.local/bin/macro.sh"
   "$HOME/.local/bin/pacman-owns.sh"
@@ -82,6 +81,10 @@ FILES=(
   "$HOME/.local/share/fcitx5/themes/matugen-dark/panel.svg"
   "$HOME/.local/share/fcitx5/themes/matugen-light/panel.svg"
   "$HOME/.local/state/DankMaterialShell/session.json"
+  "$HOME/.cargo/config.toml"
+  "$HOME/.claude/plugins/claude-hud/config.json"
+  "$HOME/.glzr/glazewm/config.yaml"
+  "$HOME/.gitmsg.md"
   "$HOME/.ripgreprc"
   "$HOME/.zshrc"
 )
