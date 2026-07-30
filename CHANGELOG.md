@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.12.0](https://github.com/sabertazimi/dotfiles/compare/v1.11.0...v1.12.0) (2026-07-30)
+
+### Features
+
+* **dms:** use per-mode `Papirus` icon themes ([cdf764a](https://github.com/sabertazimi/dotfiles/commit/cdf764af8d5190f1bcfb1997edb48c80f8d685a7))
+* **mime:** open PDF and comic books in Firefox ([95c5f57](https://github.com/sabertazimi/dotfiles/commit/95c5f574d14afe54f1c564671966ffbc35afd910))
+* **niri:** add workspace-rename binding and rebind shortcut keys ([a2fce51](https://github.com/sabertazimi/dotfiles/commit/a2fce519b8d4314757778953bfaa3ff3d07034bd))
+* **niri:** apply full opacity to Google Chrome ([e72d6c9](https://github.com/sabertazimi/dotfiles/commit/e72d6c94122e3751be503a7ef77c4a8904b4b486))
+* **windows:** add glazewm, yasb, and zellij configs ([62a708a](https://github.com/sabertazimi/dotfiles/commit/62a708afb3d7188f3b0cde80ef4476c6f3dc8f2e))
 ## [1.11.0](https://github.com/sabertazimi/dotfiles/compare/v1.10.0...v1.11.0) (2026-06-29)
 
 
