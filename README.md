@@ -1,8 +1,8 @@
 # Dotfiles
 
-[![Author](https://img.shields.io/badge/author-sabertaz-lightgrey?style=for-the-badge)](https://github.com/sabertazimi)
+[![Author](https://img.shields.io/badge/author-sabertaz-lightgrey?style=for-the-badge)](https://github.com/sabertaz)
 [![LICENSE](https://img.shields.io/github/license/sabertazimi/dotfiles?style=for-the-badge)](https://raw.githubusercontent.com/sabertazimi/dotfiles/main/LICENSE)
-[![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dotfiles?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertazimi/dotfiles)
+[![Code Size](https://img.shields.io/github/languages/code-size/sabertazimi/dotfiles?logo=visualstudiocode&style=for-the-badge)](https://github.com/sabertaz/dotfiles)
 
 [![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=archlinux&logoColor=white)](https://github.com/archlinux)
 [![Niri](https://img.shields.io/badge/Niri-D55C44?style=for-the-badge&logo=niri&logoColor=white)](https://github.com/niri-wm/niri)
@@ -39,7 +39,7 @@ Set up new machine:
 
 ```bash
 sudo pacman -S chezmoi
-chezmoi init --apply -v sabertazimi
+chezmoi init --apply -v sabertaz
 ```
 
 See [Arch Linux setup guide](https://notes.tazimi.dev/programming/linux/arch)
@@ -104,7 +104,7 @@ Collection of wallpaper management scripts for Arch Linux:
 
 ```bash
 # Fetch scripts
-git clone --depth=1 https://github.com/sabertazimi/dotfiles.git ~/dotfiles
+git clone --depth=1 https://github.com/sabertaz/dotfiles.git ~/dotfiles
 chmod +x ~/dotfiles/wallpapers/*.sh
 
 # Install all wallpapers
@@ -156,10 +156,10 @@ source ~/.bashrc
 
 ## License
 
-MIT License Copyright (c) [`Sabertaz`](https://github.com/sabertazimi)
+MIT License Copyright (c) [`Sabertaz`](https://github.com/sabertaz)
 
 ## Contact
 
-[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sabertazimi)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sabertaz)
 [![Email](https://img.shields.io/badge/-Gmail-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sabertazimi@gmail.com)
 [![X](https://img.shields.io/badge/-X.com-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/sabertazimi)

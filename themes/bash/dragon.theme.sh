@@ -3,7 +3,7 @@
 #
 # dragon theme: a fork of the agnoster theme
 #
-# @see https://github.com/sabertazimi/dragon-zsh-theme
+# @see https://github.com/sabertaz/dragon-zsh-theme
 # @see https://www.gnu.org/software/bash/manual/bash.html#Controlling-the-Prompt-1
 # shellcheck disable=SC1091
 source "$OSH/themes/agnoster/agnoster.theme.sh"
